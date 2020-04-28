@@ -1,6 +1,8 @@
-# navigator
+# navigation-demo-app
 
-A new Flutter project.
+画面遷移サンプルアプリ🥳
+
+![navigation-demo-app](https://github.com/kyklades/flutter-sample/blob/images/navigation-demo-app.gif)
 
 ## Getting Started
 
