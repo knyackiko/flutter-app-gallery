@@ -10,6 +10,34 @@ class ContainerPage extends StatelessWidget {
 
   final String title;
 
+  static final List<NavigationItem> _navigationItems = [
+    NavigationItem(
+      body: CountDownPage(),
+      bottomNavigationBarItem: BottomNavigationBarItem(
+        icon: Icon(Icons.remove_circle_outline),
+        title: Text('count down'),
+      ),
+    ),
+    NavigationItem(
+      body: HomePage(),
+      bottomNavigationBarItem: BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        title: Text('home'),
+      ),
+    ),
+    NavigationItem(
+      body: CountUpPage(),
+      bottomNavigationBarItem: BottomNavigationBarItem(
+        icon: Icon(Icons.add_circle_outline),
+        title: Text('count up'),
+      ),
+    ),
+  ];
+  static final List<Widget> bodies =
+      _navigationItems.map((item) => item.body).toList();
+  static final List<BottomNavigationBarItem> bottomNavigationBarItems =
+      _navigationItems.map((item) => item.bottomNavigationBarItem).toList();
+
   @override
   Widget build(BuildContext context) {
     final containerModel = Provider.of<ContainerModel>(context, listen: false);
@@ -23,29 +51,12 @@ class ContainerPage extends StatelessWidget {
         body: PageView(
           controller: containerModel.pageController,
           onPageChanged: containerModel.updateCurrentPage,
-          children: <Widget>[
-            CountDownPage(),
-            HomePage(),
-            CountUpPage(),
-          ],
+          children: bodies,
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: Provider.of<ContainerModel>(context).currentPage,
           onTap: (page) => _onBottomNavigationBarTapped(page, containerModel),
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.remove_circle_outline),
-              title: Text('count down'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text('home'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle_outline),
-              title: Text('count up'),
-            )
-          ],
+          items: bottomNavigationBarItems,
         ),
       ),
     );
@@ -68,4 +79,11 @@ class ContainerPage extends StatelessWidget {
     model.updateCurrentPage(page);
     model.pageController.jumpToPage(page);
   }
+}
+
+class NavigationItem {
+  Widget body;
+  BottomNavigationBarItem bottomNavigationBarItem;
+
+  NavigationItem({@required this.body, @required this.bottomNavigationBarItem});
 }
