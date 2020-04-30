@@ -1,19 +1,8 @@
+import 'package:bottomnavbardemoapp/model/count_down_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CountDownPage extends StatefulWidget {
-  @override
-  _CountDownPageState createState() => _CountDownPageState();
-}
-
-class _CountDownPageState extends State<CountDownPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
+class CountDownPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +23,15 @@ class _CountDownPageState extends State<CountDownPage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              Provider.of<CountDownModel>(context).counter.toString(),
               style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () =>
+            Provider.of<CountDownModel>(context, listen: false).countDown(),
         tooltip: 'Decrement',
         child: Icon(Icons.remove),
       ),

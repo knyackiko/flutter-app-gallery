@@ -1,39 +1,28 @@
+import 'package:bottomnavbardemoapp/model/container_model.dart';
 import 'package:bottomnavbardemoapp/ui/count_down.dart';
 import 'package:bottomnavbardemoapp/ui/count_up.dart';
 import 'package:bottomnavbardemoapp/ui/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ContainerPage extends StatefulWidget {
+class ContainerPage extends StatelessWidget {
   ContainerPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _State createState() => _State();
-}
-
-class _State extends State<ContainerPage> {
-  int _currentIndex;
-  PageController _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentIndex = 1;
-    _pageController = PageController(initialPage: _currentIndex);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final containerModel = Provider.of<ContainerModel>(context, listen: false);
+
     return WillPopScope(
-      onWillPop: _onWillPop,
+      onWillPop: () => _onWillPop(containerModel),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(title),
         ),
         body: PageView(
-          controller: _pageController,
-          onPageChanged: _onBodyPageChanged,
+          controller: containerModel.pageController,
+          onPageChanged: containerModel.updateCurrentPage,
           children: <Widget>[
             CountDownPage(),
             HomePage(),
@@ -41,8 +30,8 @@ class _State extends State<ContainerPage> {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: _onBottomNavigationBarTapped,
+          currentIndex: Provider.of<ContainerModel>(context).currentPage,
+          onTap: (page) => _onBottomNavigationBarTapped(page, containerModel),
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.remove_circle_outline),
@@ -62,24 +51,21 @@ class _State extends State<ContainerPage> {
     );
   }
 
-  Future<bool> _onWillPop() async {
-    if (_currentIndex == 1) {
+  Future<bool> _onWillPop(ContainerModel model) async {
+    if (model.currentPage == model.initialPage) {
       return true;
     }
-    _jumpToPage(1);
+
+    _jumpToPage(model.initialPage, model);
     return false;
   }
 
-  void _onBodyPageChanged(int index) {
-    setState(() => _currentIndex = index);
+  _onBottomNavigationBarTapped(int page, ContainerModel model) {
+    _jumpToPage(page, model);
   }
 
-  void _onBottomNavigationBarTapped(int index) {
-    _jumpToPage(index);
-  }
-
-  void _jumpToPage(int index) {
-    _pageController.jumpToPage(index);
-    setState(() => _currentIndex = index);
+  _jumpToPage(int page, ContainerModel model) {
+    model.updateCurrentPage(page);
+    model.pageController.jumpToPage(page);
   }
 }

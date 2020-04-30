@@ -1,19 +1,8 @@
+import 'package:bottomnavbardemoapp/model/count_up_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CountUpPage extends StatefulWidget {
-  @override
-  _CountUpPageState createState() => _CountUpPageState();
-}
-
-class _CountUpPageState extends State<CountUpPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class CountUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,14 +23,15 @@ class _CountUpPageState extends State<CountUpPage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              Provider.of<CountUpModel>(context).counter.toString(),
               style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () =>
+            Provider.of<CountUpModel>(context, listen: false).countUp(),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
