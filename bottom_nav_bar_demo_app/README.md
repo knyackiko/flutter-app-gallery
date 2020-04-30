@@ -2,6 +2,8 @@
 
 Sample app with bottom navigation bar.
 
+![bottom-navigation-bar-demo-app](https://github.com/kyklades/flutter-sample/blob/images/bottom-navigation-bar-demo.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
