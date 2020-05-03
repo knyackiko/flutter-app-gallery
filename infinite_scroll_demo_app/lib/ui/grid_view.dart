@@ -6,7 +6,8 @@ class GridViewPage extends StatefulWidget {
   _GridViewPageState createState() => _GridViewPageState();
 }
 
-class _GridViewPageState extends State<GridViewPage> {
+class _GridViewPageState extends State<GridViewPage>
+    with AutomaticKeepAliveClientMixin<GridViewPage> {
   List<Picture> _pictures;
 
   @override
@@ -17,6 +18,8 @@ class _GridViewPageState extends State<GridViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
@@ -63,4 +66,7 @@ class _GridViewPageState extends State<GridViewPage> {
           )
         : Container();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
