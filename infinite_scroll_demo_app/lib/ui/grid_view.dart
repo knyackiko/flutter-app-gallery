@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:infinitescrolldemoapp/type/picture.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
@@ -6,12 +7,12 @@ class GridViewPage extends StatefulWidget {
 }
 
 class _GridViewPageState extends State<GridViewPage> {
-  List<int> _items;
+  List<Picture> _pictures;
 
   @override
   void initState() {
     super.initState();
-    _items = List.generate(20, (index) => index + 1);
+    _pictures = pictures;
   }
 
   @override
@@ -19,22 +20,47 @@ class _GridViewPageState extends State<GridViewPage> {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
+        mainAxisSpacing: 2,
+        crossAxisSpacing: 2,
       ),
       itemBuilder: _itemBuilder,
     );
   }
 
   Widget _itemBuilder(BuildContext context, int position) {
-    final length = _items?.length ?? 0;
+    final length = _pictures?.length ?? 0;
     if (position >= length) {
-      _items.addAll(List.generate(20, (index) => length + index + 1));
+      _pictures.addAll(pictures.take(pictures.length));
     }
-    return Container(
-      color: Colors.purple[100],
-      padding: EdgeInsets.all(5),
-      child: Text('Item ${_items[position]}'),
+
+    final pic = _pictures[position];
+    return GridTile(
+      header: _buildHeader(pic),
+      child: Image.asset('${pic.path}'),
     );
+  }
+
+  Widget _buildHeader(Picture picture) {
+    if (picture.hasProduct) {
+      return Align(
+        alignment: Alignment.centerRight,
+        child: Icon(
+          Icons.shopping_basket,
+          size: 18,
+          color: Colors.white,
+        ),
+      );
+    }
+
+    return picture.isMultiple
+        ? Align(
+            alignment: Alignment.centerRight,
+            child: Icon(
+              Icons.photo_library,
+              size: 18,
+              color: Colors.white,
+            ),
+          )
+        : Container();
   }
 }
