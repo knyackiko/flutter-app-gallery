@@ -3,6 +3,7 @@ import 'package:infinitescrolldemoapp/ui/grid_view.dart';
 import 'package:infinitescrolldemoapp/ui/list_view.dart';
 
 class ContainerPage extends StatefulWidget {
+  static const routeName = '/container';
   ContainerPage({Key key, this.title}) : super(key: key);
 
   final String title;

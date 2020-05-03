@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinitescrolldemoapp/ui/container.dart';
+import 'package:infinitescrolldemoapp/ui/picture_detail.dart';
 
 void main() => runApp(InfiniteScrollDemoApp());
 
@@ -11,7 +12,13 @@ class InfiniteScrollDemoApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: ContainerPage(title: _title),
+      initialRoute: ContainerPage.routeName,
+      routes: <String, WidgetBuilder>{
+        ContainerPage.routeName: (BuildContext context) =>
+            ContainerPage(title: _title),
+        PictureDetailPage.routeName: (BuildContext context) =>
+            PictureDetailPage(),
+      },
     );
   }
 }

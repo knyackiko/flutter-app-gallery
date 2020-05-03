@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Picture {
-  String path;
-  bool isMultiple;
-  bool hasProduct;
+  final String path;
+  final bool isMultiple;
+  final bool hasProduct;
 
   Picture(
       {@required this.path, this.isMultiple = false, this.hasProduct = false});

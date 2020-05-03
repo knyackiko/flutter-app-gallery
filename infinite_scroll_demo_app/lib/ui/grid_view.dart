@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinitescrolldemoapp/entity/picture.dart';
+import 'package:infinitescrolldemoapp/ui/picture_detail.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
@@ -37,9 +38,13 @@ class _GridViewPageState extends State<GridViewPage>
     }
 
     final pic = _pictures[position];
-    return GridTile(
-      header: _buildHeader(pic),
-      child: Image.asset('${pic.path}'),
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, PictureDetailPage.routeName,
+          arguments: PictureDetailArguments(picture: pic)),
+      child: GridTile(
+        header: _buildHeader(pic),
+        child: Image.asset('${pic.path}'),
+      ),
     );
   }
 
