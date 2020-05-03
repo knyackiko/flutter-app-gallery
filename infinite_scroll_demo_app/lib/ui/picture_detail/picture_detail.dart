@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:infinitescrolldemoapp/entity/picture.dart';
+import 'package:infinitescrolldemoapp/entity/post.dart';
+import 'package:infinitescrolldemoapp/ui/post/post.dart';
 
 class PictureDetailPage extends StatelessWidget {
   static const routeName = '/picture-detail';
@@ -8,14 +9,17 @@ class PictureDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final PictureDetailArguments args =
         ModalRoute.of(context).settings.arguments;
+    final post = args.post;
+
     return Scaffold(
-      body: Center(child: Image.asset(args.picture.path)),
+      appBar: AppBar(title: Text('Detail')),
+      body: Post(post: post),
     );
   }
 }
 
 class PictureDetailArguments {
-  final Picture picture;
+  final PostEntity post;
 
-  PictureDetailArguments({@required this.picture});
+  PictureDetailArguments({@required this.post});
 }

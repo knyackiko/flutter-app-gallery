@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinitescrolldemoapp/ui/container.dart';
-import 'package:infinitescrolldemoapp/ui/picture_detail.dart';
+import 'package:infinitescrolldemoapp/ui/picture_detail/picture_detail.dart';
 
 void main() => runApp(InfiniteScrollDemoApp());
 

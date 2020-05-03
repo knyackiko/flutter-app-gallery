@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:infinitescrolldemoapp/entity/picture.dart';
-import 'package:infinitescrolldemoapp/ui/picture_detail.dart';
+import 'package:infinitescrolldemoapp/entity/post.dart';
+import 'package:infinitescrolldemoapp/ui/picture_detail/picture_detail.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
@@ -9,12 +9,12 @@ class GridViewPage extends StatefulWidget {
 
 class _GridViewPageState extends State<GridViewPage>
     with AutomaticKeepAliveClientMixin<GridViewPage> {
-  List<Picture> _pictures;
+  List<PostEntity> _posts;
 
   @override
   void initState() {
     super.initState();
-    _pictures = pictures;
+    _posts = posts;
   }
 
   @override
@@ -32,24 +32,24 @@ class _GridViewPageState extends State<GridViewPage>
   }
 
   Widget _itemBuilder(BuildContext context, int position) {
-    final length = _pictures?.length ?? 0;
+    final length = _posts?.length ?? 0;
     if (position >= length) {
-      _pictures.addAll(pictures.take(pictures.length));
+      _posts.addAll(posts.take(posts.length));
     }
 
-    final pic = _pictures[position];
+    final post = _posts[position];
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, PictureDetailPage.routeName,
-          arguments: PictureDetailArguments(picture: pic)),
+          arguments: PictureDetailArguments(post: post)),
       child: GridTile(
-        header: _buildHeader(pic),
-        child: Image.asset('${pic.path}'),
+        header: _buildHeader(post),
+        child: Image.asset(post.picture.path),
       ),
     );
   }
 
-  Widget _buildHeader(Picture picture) {
-    if (picture.hasProduct) {
+  Widget _buildHeader(PostEntity post) {
+    if (post.hasProduct) {
       return Align(
         alignment: Alignment.centerRight,
         child: Icon(
@@ -60,7 +60,7 @@ class _GridViewPageState extends State<GridViewPage>
       );
     }
 
-    return picture.isMultiple
+    return post.isMultiple
         ? Align(
             alignment: Alignment.centerRight,
             child: Icon(
