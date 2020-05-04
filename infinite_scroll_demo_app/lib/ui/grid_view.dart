@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinitescrolldemoapp/entity/post.dart';
-import 'package:infinitescrolldemoapp/ui/picture_detail/picture_detail.dart';
+import 'package:infinitescrolldemoapp/ui/post_detail.dart';
 
 class GridViewPage extends StatefulWidget {
   @override
