@@ -5,7 +5,8 @@ class ListViewPage extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<ListViewPage> {
+class _State extends State<ListViewPage>
+    with AutomaticKeepAliveClientMixin<ListViewPage> {
   List<int> _items;
 
   @override
@@ -16,6 +17,7 @@ class _State extends State<ListViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return ListView.builder(
       itemBuilder: _itemBuilder,
     );
@@ -40,4 +42,7 @@ class _State extends State<ListViewPage> {
       ],
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
