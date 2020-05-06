@@ -9,3 +9,6 @@ class UserEntity {
 
 final kyklades =
     UserEntity(userName: 'kyklades', userIconPath: 'assets/tomato.png');
+final gsshgfd = UserEntity(userName: 'gsshgfd');
+final adfs = UserEntity(userName: 'adfs');
+final qewW = UserEntity(userName: 'qew_w');

@@ -26,6 +26,9 @@ dependencies:
   font_awesome_flutter: 8.8.1
   provider: ^4.0.5+1
 
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

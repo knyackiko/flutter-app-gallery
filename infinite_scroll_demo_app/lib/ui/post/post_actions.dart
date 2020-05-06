@@ -9,49 +9,51 @@ class PostActions extends StatelessWidget {
     final postActionsModel =
         Provider.of<PostActionsModel>(context, listen: false);
 
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Container(
-            width: 150,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  icon: Provider.of<PostActionsModel>(context).isLiked
-                      ? FaIcon(
-                          FontAwesomeIcons.solidHeart,
-                          color: Colors.red,
-                        )
-                      : FaIcon(FontAwesomeIcons.heart),
-                  onPressed: () =>
-                      postActionsModel.updateIsLiked(!postActionsModel.isLiked),
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                ),
-                IconButton(
-                  icon: FaIcon(FontAwesomeIcons.comment),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: FaIcon(FontAwesomeIcons.paperPlane),
-                  onPressed: () {},
-                ),
-              ],
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Container(
+          width: 150,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              IconButton(
+                icon: Provider.of<PostActionsModel>(context).isLiked
+                    ? FaIcon(
+                        FontAwesomeIcons.solidHeart,
+                        color: Colors.red,
+                      )
+                    : FaIcon(FontAwesomeIcons.heart),
+                onPressed: () =>
+                    postActionsModel.updateIsLiked(!postActionsModel.isLiked),
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+              ),
+              IconButton(
+                icon: FaIcon(FontAwesomeIcons.comment),
+                onPressed: () {},
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+              ),
+              IconButton(
+                icon: FaIcon(FontAwesomeIcons.paperPlane),
+                onPressed: () {},
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+              ),
+            ],
           ),
-          IconButton(
-            icon: Provider.of<PostActionsModel>(context).isBookmarked
-                ? FaIcon(FontAwesomeIcons.solidBookmark)
-                : FaIcon(FontAwesomeIcons.bookmark),
-            onPressed: () => postActionsModel
-                .updateIsBookmarked(!postActionsModel.isBookmarked),
-            highlightColor: Colors.transparent,
-            splashColor: Colors.transparent,
-          ),
-        ],
-      ),
+        ),
+        IconButton(
+          icon: Provider.of<PostActionsModel>(context).isBookmarked
+              ? FaIcon(FontAwesomeIcons.solidBookmark)
+              : FaIcon(FontAwesomeIcons.bookmark),
+          onPressed: () => postActionsModel
+              .updateIsBookmarked(!postActionsModel.isBookmarked),
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+        ),
+      ],
     );
   }
 }
