@@ -32,8 +32,16 @@ class _State extends State<ListViewPage>
 
     return Dismissible(
       key: ObjectKey(_items[position]),
-      direction: DismissDirection.endToStart,
       background: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        alignment: Alignment.centerLeft,
+        color: Colors.blue,
+        child: Icon(
+          Icons.archive,
+          color: Colors.white,
+        ),
+      ),
+      secondaryBackground: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.centerRight,
         color: Colors.red,
@@ -44,6 +52,10 @@ class _State extends State<ListViewPage>
       ),
       onDismissed: (direction) {
         _items.removeAt(position);
+        if (direction == DismissDirection.startToEnd) {
+          Scaffold.of(context).showSnackBar(SnackBars.archivedSnackBar);
+          return;
+        }
         if (direction == DismissDirection.endToStart) {
           Scaffold.of(context).showSnackBar(SnackBars.deletedSnackBar);
         }
