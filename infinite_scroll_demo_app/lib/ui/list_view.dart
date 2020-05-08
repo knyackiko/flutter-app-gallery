@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:infinitescrolldemoapp/ui/common/snackbars.dart';
 
 class ListViewPage extends StatefulWidget {
   @override
@@ -43,6 +44,9 @@ class _State extends State<ListViewPage>
       ),
       onDismissed: (direction) {
         _items.removeAt(position);
+        if (direction == DismissDirection.endToStart) {
+          Scaffold.of(context).showSnackBar(SnackBars.deletedSnackBar);
+        }
       },
       child: Column(
         children: <Widget>[
