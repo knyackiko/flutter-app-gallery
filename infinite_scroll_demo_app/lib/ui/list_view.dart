@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:infinitescrolldemoapp/ui/common/snackbars.dart';
 
 class ListViewPage extends StatefulWidget {
+  final listViewPageController;
+
+  ListViewPage(this.listViewPageController);
+
   @override
   _State createState() => _State();
 }
@@ -25,6 +29,7 @@ class _State extends State<ListViewPage>
       child: ListView.builder(
         physics: AlwaysScrollableScrollPhysics(),
         itemBuilder: _itemBuilder,
+        controller: widget.listViewPageController,
       ),
     );
   }

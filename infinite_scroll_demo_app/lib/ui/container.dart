@@ -17,6 +17,13 @@ class _ContainerPageState extends State<ContainerPage> {
   PageController _pageController = PageController(initialPage: _initialPage);
   int _page = _initialPage;
 
+  static final listViewPageController = ScrollController();
+  static final gridViewPageController = ScrollController();
+  final pageControllers = [
+    listViewPageController,
+    gridViewPageController,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -29,13 +36,13 @@ class _ContainerPageState extends State<ContainerPage> {
           controller: _pageController,
           physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
-            ListViewPage(),
-            GridViewPage(),
+            ListViewPage(listViewPageController),
+            GridViewPage(gridViewPageController),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _page,
-          onTap: _jumpToPage,
+          onTap: _onTap,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.list), title: Text('ListView')),
@@ -53,6 +60,15 @@ class _ContainerPageState extends State<ContainerPage> {
     }
     _jumpToPage(_initialPage);
     return false;
+  }
+
+  void _onTap(int page) {
+    if (_page == page) {
+      pageControllers[page].animateTo(0,
+          duration: Duration(milliseconds: 500), curve: Curves.easeOut);
+      return;
+    }
+    _jumpToPage(page);
   }
 
   void _jumpToPage(int page) {

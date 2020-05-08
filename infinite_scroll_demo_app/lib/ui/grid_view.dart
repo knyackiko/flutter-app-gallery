@@ -3,6 +3,10 @@ import 'package:infinitescrolldemoapp/entity/post.dart';
 import 'package:infinitescrolldemoapp/ui/post_detail.dart';
 
 class GridViewPage extends StatefulWidget {
+  final gridViewPageController;
+
+  GridViewPage(this.gridViewPageController);
+
   @override
   _GridViewPageState createState() => _GridViewPageState();
 }
@@ -22,6 +26,7 @@ class _GridViewPageState extends State<GridViewPage>
     super.build(context);
 
     return GridView.builder(
+      controller: widget.gridViewPageController,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         mainAxisSpacing: 2,
