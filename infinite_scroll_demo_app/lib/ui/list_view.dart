@@ -13,15 +13,31 @@ class _State extends State<ListViewPage>
   @override
   void initState() {
     super.initState();
-    _items = List.generate(20, (i) => i + 1);
+    _initItems();
   }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return ListView.builder(
-      itemBuilder: _itemBuilder,
+    return RefreshIndicator(
+      displacement: 20,
+      onRefresh: _onRefresh,
+      child: ListView.builder(
+        physics: AlwaysScrollableScrollPhysics(),
+        itemBuilder: _itemBuilder,
+      ),
     );
+  }
+
+  void _initItems() {
+    _items = List.generate(20, (i) => i + 1);
+  }
+
+  Future<void> _onRefresh() async {
+    await Future.delayed(Duration(seconds: 2));
+    setState(() {
+      _initItems();
+    });
   }
 
   Widget _itemBuilder(BuildContext context, int index) {
