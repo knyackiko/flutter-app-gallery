@@ -13,7 +13,7 @@ class _State extends State<ListViewPage>
   @override
   void initState() {
     super.initState();
-    _items = List.generate(20, (index) => index + 1);
+    _items = List.generate(20, (i) => i + 1);
   }
 
   @override
@@ -24,14 +24,14 @@ class _State extends State<ListViewPage>
     );
   }
 
-  Widget _itemBuilder(BuildContext context, int position) {
+  Widget _itemBuilder(BuildContext context, int index) {
     final length = _items?.length ?? 0;
-    if (position >= length) {
-      _items.addAll(List.generate(10, (index) => _items.length + index + 1));
+    if (index >= length) {
+      _items.addAll(List.generate(10, (i) => length + i + 1));
     }
 
     return Dismissible(
-      key: ObjectKey(_items[position]),
+      key: UniqueKey(),
       background: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.centerLeft,
@@ -51,7 +51,9 @@ class _State extends State<ListViewPage>
         ),
       ),
       onDismissed: (direction) {
-        _items.removeAt(position);
+        setState(() {
+          _items.removeAt(index);
+        });
         if (direction == DismissDirection.startToEnd) {
           Scaffold.of(context).showSnackBar(SnackBars.archivedSnackBar);
           return;
@@ -65,7 +67,7 @@ class _State extends State<ListViewPage>
           ListTile(
             title: Center(
               child: Text(
-                'Row ${_items[position]}',
+                'Row ${_items[index]}',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
             ),
