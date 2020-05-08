@@ -28,18 +28,35 @@ class _State extends State<ListViewPage>
     if (position >= length) {
       _items.addAll(List.generate(10, (index) => _items.length + index + 1));
     }
-    return Column(
-      children: <Widget>[
-        ListTile(
-          title: Center(
-            child: Text(
-              'Row ${_items[position]}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+
+    return Dismissible(
+      key: ObjectKey(_items[position]),
+      direction: DismissDirection.endToStart,
+      background: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        alignment: Alignment.centerRight,
+        color: Colors.red,
+        child: Icon(
+          Icons.delete,
+          color: Colors.white,
+        ),
+      ),
+      onDismissed: (direction) {
+        _items.removeAt(position);
+      },
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            title: Center(
+              child: Text(
+                'Row ${_items[position]}',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              ),
             ),
           ),
-        ),
-        Divider(),
-      ],
+          Divider(height: 1),
+        ],
+      ),
     );
   }
 
