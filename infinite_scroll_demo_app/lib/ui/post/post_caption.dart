@@ -47,7 +47,7 @@ class PostCaption extends StatelessWidget {
                   TextSpan(
                       text: post.user.userName,
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: post.picture.caption),
+                  TextSpan(text: post.caption),
                 ],
               ),
             ),

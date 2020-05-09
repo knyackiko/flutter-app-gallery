@@ -48,7 +48,7 @@ class _GridViewPageState extends State<GridViewPage>
           arguments: PictureDetailArguments(post: post)),
       child: GridTile(
         header: _buildHeader(post),
-        child: Image.asset(post.picture.path),
+        child: Image.asset(post.pictures[0].path),
       ),
     );
   }

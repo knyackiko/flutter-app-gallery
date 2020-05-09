@@ -6,6 +6,7 @@ import 'package:infinitescrolldemoapp/ui/post/post_caption.dart';
 import 'package:infinitescrolldemoapp/ui/post/post_comment.dart';
 import 'package:infinitescrolldemoapp/ui/post/post_footer.dart';
 import 'package:infinitescrolldemoapp/ui/post/post_header.dart';
+import 'package:infinitescrolldemoapp/ui/post/post_pictures.dart';
 import 'package:provider/provider.dart';
 
 class Post extends StatelessWidget {
@@ -25,7 +26,7 @@ class Post extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           PostHeader(user: post.user),
-          Image.asset(post.picture.path),
+          PostPictures(post.pictures),
           PostActions(),
           PostCaption(post: post),
           PostComment(),
