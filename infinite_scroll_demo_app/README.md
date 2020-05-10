@@ -2,6 +2,8 @@
 
 Sample application of infinite scrolling.
 
+![infinite-scroll-demo-app](https://github.com/kyklades/flutter-sample/blob/images/infinite-scroll-demo-app.gif)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
