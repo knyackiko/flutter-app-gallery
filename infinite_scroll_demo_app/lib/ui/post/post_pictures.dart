@@ -3,9 +3,9 @@ import 'package:infinitescrolldemoapp/entity/picture.dart';
 
 class PostPictures extends StatelessWidget {
   final List<PictureEntity> pictures;
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController picturePageController;
 
-  PostPictures(this.pictures);
+  PostPictures({@required this.pictures, @required this.picturePageController});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PostPictures extends StatelessWidget {
       ),
       height: width,
       child: PageView(
-        controller: _pageController,
+        controller: picturePageController,
         children: _images(),
       ),
     );

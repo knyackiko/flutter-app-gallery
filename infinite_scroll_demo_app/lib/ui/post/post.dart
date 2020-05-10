@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 class Post extends StatelessWidget {
   final PostEntity post;
+  final PageController _picturePageController = PageController(initialPage: 0);
 
   Post({@required this.post});
 
@@ -26,8 +27,14 @@ class Post extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           PostHeader(user: post.user),
-          PostPictures(post.pictures),
-          PostActions(),
+          PostPictures(
+            pictures: post.pictures,
+            picturePageController: _picturePageController,
+          ),
+          PostActions(
+            pictures: post.pictures,
+            picturePageController: _picturePageController,
+          ),
           PostCaption(post: post),
           PostComment(),
           PostFooter(postedTime: post.postedTime),

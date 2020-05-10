@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   font_awesome_flutter: 8.8.1
   provider: ^4.0.5+1
+  smooth_page_indicator: ^0.1.5
 
   flutter_localizations:
     sdk: flutter
