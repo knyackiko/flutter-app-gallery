@@ -65,7 +65,7 @@ class _GridViewPageState extends State<GridViewPage>
       );
     }
 
-    return post.isMultiple
+    return post.pictures.length > 1
         ? Align(
             alignment: Alignment.centerRight,
             child: Icon(
