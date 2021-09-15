@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_app/view/repo_list_page/repo_list_item.dart';
 import 'package:github_repo_app/view_model/repo_list_page/repo_list_page_view_model.dart';
 
 class RepoListPage extends ConsumerWidget {
@@ -16,11 +17,11 @@ class RepoListPage extends ConsumerWidget {
       ),
       body: ListView.separated(
         physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(8),
         itemCount: repoListPageState.repositories.length,
         itemBuilder: (BuildContext context, int index) =>
-            Text(repoListPageState.repositories[index].name),
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+            RepoListItem(repo: repoListPageState.repositories[index]),
+        separatorBuilder: (BuildContext context, int index) =>
+            const Divider(height: 0),
       ),
     );
   }
