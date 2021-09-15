@@ -37,6 +37,7 @@ dependencies:
   freezed_annotation: ^0.14.3
   flutter_riverpod: ^0.14.0+3
   state_notifier: ^0.7.1
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:

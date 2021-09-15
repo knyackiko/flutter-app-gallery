@@ -5,3 +5,6 @@ targets:
         enabled: true
       json_serializable:
         enabled: true
+        options:
+          field_rename: snake
+          checked: true

@@ -15,7 +15,14 @@ class RepoListPageViewModel extends StateNotifier<RepoListPageState> {
   late final RepoRepository repoRepository;
 
   updateRepositories() async {
-    final repositories = await repoRepository.fetch();
-    state = state.copyWith(repositories: repositories);
+    final result = await repoRepository.findByUserName('kyklades');
+    result.when(
+      success: (repositories) {
+        state = state.copyWith(repositories: repositories);
+      },
+      failure: (reason) {
+        state = state.copyWith(repositories: []);
+      },
+    );
   }
 }
