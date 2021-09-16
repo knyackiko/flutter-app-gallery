@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_app/model/entity/repo/repo.dart';
+import 'package:github_repo_app/view/repo_page/repo_page.dart';
 
 class RepoListItem extends StatelessWidget {
   const RepoListItem({Key? key, required this.repo}) : super(key: key);
@@ -8,7 +9,7 @@ class RepoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => debugPrint('tapped ${repo.name}'),
+      onTap: () => Navigator.of(context).pushNamed(RepoPage.routeName),
       leading: CircleAvatar(
         backgroundColor: Colors.transparent,
         backgroundImage: NetworkImage(repo.owner.avatarUrl),

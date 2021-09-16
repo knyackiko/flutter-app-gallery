@@ -5,6 +5,7 @@ import 'package:github_repo_app/view_model/repo_list_page/repo_list_page_view_mo
 
 class RepoListPage extends ConsumerWidget {
   const RepoListPage({Key? key, required this.title}) : super(key: key);
+  static const routeName = '/repo-list';
   final String title;
 
   @override
