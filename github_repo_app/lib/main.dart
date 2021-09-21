@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/view/repo_list_page/repo_list_page.dart';
+import 'package:github_repo_app/view/main_page/main_page.dart';
 import 'package:github_repo_app/view/repo_page/repo_page.dart';
 
 void main() {
@@ -17,11 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RepoListPage.routeName,
+      initialRoute: MainPage.routeName,
       routes: <String, WidgetBuilder>{
-        RepoListPage.routeName: (BuildContext context) =>
-            const RepoListPage(title: 'Repositories'),
-        RepoPage.routeName: (BuildContext context) => RepoPage(),
+        MainPage.routeName: (BuildContext context) => const MainPage(),
+        RepoPage.routeName: (BuildContext context) => const RepoPage(),
       },
     );
   }

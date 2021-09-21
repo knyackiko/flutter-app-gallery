@@ -1,13 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_app/model/repository/repo_repository.dart';
-import 'package:github_repo_app/view_model/repo_list_page/repo_list_page_state.dart';
+import 'package:github_repo_app/view_model/repo_list_content/repo_list_content_state.dart';
 
-final repoListPageViewModelProvider =
-    StateNotifierProvider<RepoListPageViewModel, RepoListPageState>(
-        (ref) => RepoListPageViewModel(ref));
+final repoListContentViewModelProvider =
+    StateNotifierProvider<RepoListContentViewModel, RepoListContentState>(
+        (ref) => RepoListContentViewModel(ref));
 
-class RepoListPageViewModel extends StateNotifier<RepoListPageState> {
-  RepoListPageViewModel(ref) : super(RepoListPageState()) {
+class RepoListContentViewModel extends StateNotifier<RepoListContentState> {
+  RepoListContentViewModel(ref) : super(RepoListContentState()) {
     repoRepository = ref.read(repoRepositoryProvider);
     updateRepositories();
   }
