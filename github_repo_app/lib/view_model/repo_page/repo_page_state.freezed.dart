@@ -17,10 +17,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$RepoPageStateTearOff {
   const _$RepoPageStateTearOff();
 
-  _RepoPageState call({int progress = 0, WebResourceError? error}) {
+  _RepoPageState call(
+      {int progress = 0,
+      WebResourceError? error,
+      WebViewController? webViewController}) {
     return _RepoPageState(
       progress: progress,
       error: error,
+      webViewController: webViewController,
     );
   }
 }
@@ -32,6 +36,8 @@ const $RepoPageState = _$RepoPageStateTearOff();
 mixin _$RepoPageState {
   int get progress => throw _privateConstructorUsedError;
   WebResourceError? get error => throw _privateConstructorUsedError;
+  WebViewController? get webViewController =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RepoPageStateCopyWith<RepoPageState> get copyWith =>
@@ -43,7 +49,10 @@ abstract class $RepoPageStateCopyWith<$Res> {
   factory $RepoPageStateCopyWith(
           RepoPageState value, $Res Function(RepoPageState) then) =
       _$RepoPageStateCopyWithImpl<$Res>;
-  $Res call({int progress, WebResourceError? error});
+  $Res call(
+      {int progress,
+      WebResourceError? error,
+      WebViewController? webViewController});
 }
 
 /// @nodoc
@@ -59,6 +68,7 @@ class _$RepoPageStateCopyWithImpl<$Res>
   $Res call({
     Object? progress = freezed,
     Object? error = freezed,
+    Object? webViewController = freezed,
   }) {
     return _then(_value.copyWith(
       progress: progress == freezed
@@ -69,6 +79,10 @@ class _$RepoPageStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as WebResourceError?,
+      webViewController: webViewController == freezed
+          ? _value.webViewController
+          : webViewController // ignore: cast_nullable_to_non_nullable
+              as WebViewController?,
     ));
   }
 }
@@ -80,7 +94,10 @@ abstract class _$RepoPageStateCopyWith<$Res>
           _RepoPageState value, $Res Function(_RepoPageState) then) =
       __$RepoPageStateCopyWithImpl<$Res>;
   @override
-  $Res call({int progress, WebResourceError? error});
+  $Res call(
+      {int progress,
+      WebResourceError? error,
+      WebViewController? webViewController});
 }
 
 /// @nodoc
@@ -98,6 +115,7 @@ class __$RepoPageStateCopyWithImpl<$Res>
   $Res call({
     Object? progress = freezed,
     Object? error = freezed,
+    Object? webViewController = freezed,
   }) {
     return _then(_RepoPageState(
       progress: progress == freezed
@@ -108,6 +126,10 @@ class __$RepoPageStateCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as WebResourceError?,
+      webViewController: webViewController == freezed
+          ? _value.webViewController
+          : webViewController // ignore: cast_nullable_to_non_nullable
+              as WebViewController?,
     ));
   }
 }
@@ -115,17 +137,19 @@ class __$RepoPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RepoPageState implements _RepoPageState {
-  _$_RepoPageState({this.progress = 0, this.error});
+  _$_RepoPageState({this.progress = 0, this.error, this.webViewController});
 
   @JsonKey(defaultValue: 0)
   @override
   final int progress;
   @override
   final WebResourceError? error;
+  @override
+  final WebViewController? webViewController;
 
   @override
   String toString() {
-    return 'RepoPageState(progress: $progress, error: $error)';
+    return 'RepoPageState(progress: $progress, error: $error, webViewController: $webViewController)';
   }
 
   @override
@@ -136,14 +160,18 @@ class _$_RepoPageState implements _RepoPageState {
                 const DeepCollectionEquality()
                     .equals(other.progress, progress)) &&
             (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+                const DeepCollectionEquality().equals(other.error, error)) &&
+            (identical(other.webViewController, webViewController) ||
+                const DeepCollectionEquality()
+                    .equals(other.webViewController, webViewController)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(progress) ^
-      const DeepCollectionEquality().hash(error);
+      const DeepCollectionEquality().hash(error) ^
+      const DeepCollectionEquality().hash(webViewController);
 
   @JsonKey(ignore: true)
   @override
@@ -152,13 +180,18 @@ class _$_RepoPageState implements _RepoPageState {
 }
 
 abstract class _RepoPageState implements RepoPageState {
-  factory _RepoPageState({int progress, WebResourceError? error}) =
-      _$_RepoPageState;
+  factory _RepoPageState(
+      {int progress,
+      WebResourceError? error,
+      WebViewController? webViewController}) = _$_RepoPageState;
 
   @override
   int get progress => throw _privateConstructorUsedError;
   @override
   WebResourceError? get error => throw _privateConstructorUsedError;
+  @override
+  WebViewController? get webViewController =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RepoPageStateCopyWith<_RepoPageState> get copyWith =>

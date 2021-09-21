@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_app/model/entity/repo/repo.dart';
@@ -10,10 +8,8 @@ import 'package:github_repo_app/view_model/repo_page/repo_page_view_model.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class RepoPage extends ConsumerWidget {
-  RepoPage({Key? key}) : super(key: key);
+  const RepoPage({Key? key}) : super(key: key);
   static const routeName = '/repo';
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -44,22 +40,20 @@ class RepoPage extends ConsumerWidget {
             visible: repoPageState.error == null,
             replacement: const WebViewFailedBody(),
             child: WebView(
-                initialUrl: repo.htmlUrl,
-                javascriptMode: JavascriptMode.unrestricted,
-                onWebViewCreated: (WebViewController webViewController) {
-                  _controller.complete(webViewController);
-                },
-                onProgress: (int progress) =>
-                    repoPageViewModel.updateProgress(progress),
-                onPageStarted: (url) => repoPageViewModel.updateError(null),
-                onWebResourceError: (error) {
-                  repoPageViewModel.updateError(error);
-                  _controller.completeError(error);
-                }),
+              initialUrl: repo.htmlUrl,
+              javascriptMode: JavascriptMode.unrestricted,
+              onWebViewCreated: (WebViewController webViewController) =>
+                  repoPageViewModel.updateWebViewController(webViewController),
+              onProgress: (int progress) =>
+                  repoPageViewModel.updateProgress(progress),
+              onPageStarted: (url) => repoPageViewModel.updateError(null),
+              onWebResourceError: (error) =>
+                  repoPageViewModel.updateError(error),
+            ),
           ),
         ],
       ),
-      floatingActionButton: FavoriteButton(controller: _controller),
+      floatingActionButton: const FavoriteButton(),
     );
   }
 }

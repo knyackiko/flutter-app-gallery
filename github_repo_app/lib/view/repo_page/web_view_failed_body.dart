@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_repo_app/view_model/repo_page/repo_page_view_model.dart';
 
-class WebViewFailedBody extends StatelessWidget {
+class WebViewFailedBody extends ConsumerWidget {
   const WebViewFailedBody({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final repoPageViewModel = watch(repoPageViewModelProvider.notifier);
+
     return ConstrainedBox(
       constraints: const BoxConstraints.expand(),
       child: Column(
@@ -15,9 +19,9 @@ class WebViewFailedBody extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           IconButton(
-            onPressed: () => debugPrint('refresh'),
+            onPressed: () => repoPageViewModel.reload(),
             icon: const Icon(Icons.refresh),
-          )
+          ),
         ],
       ),
     );
