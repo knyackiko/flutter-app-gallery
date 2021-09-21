@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         RepoListPage.routeName: (BuildContext context) =>
             const RepoListPage(title: 'Repositories'),
-        RepoPage.routeName: (BuildContext context) => const RepoPage(),
+        RepoPage.routeName: (BuildContext context) => RepoPage(),
       },
     );
   }

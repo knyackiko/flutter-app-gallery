@@ -9,7 +9,10 @@ class RepoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => Navigator.of(context).pushNamed(RepoPage.routeName),
+      onTap: () => Navigator.of(context).pushNamed(
+        RepoPage.routeName,
+        arguments: RepoPageArguments(repo),
+      ),
       leading: CircleAvatar(
         backgroundColor: Colors.transparent,
         backgroundImage: NetworkImage(repo.owner.avatarUrl),
