@@ -10,19 +10,23 @@ class RepoListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
+    final repoListViewModel = watch(repoListPageViewModelProvider.notifier);
     final repoListPageState = watch(repoListPageViewModelProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ListView.separated(
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemCount: repoListPageState.repositories.length,
-        itemBuilder: (BuildContext context, int index) =>
-            RepoListItem(repo: repoListPageState.repositories[index]),
-        separatorBuilder: (BuildContext context, int index) =>
-            const Divider(height: 0),
+      body: RefreshIndicator(
+        onRefresh: () => repoListViewModel.updateRepositories(),
+        child: ListView.separated(
+          physics: const AlwaysScrollableScrollPhysics(),
+          itemCount: repoListPageState.repositories.length,
+          itemBuilder: (BuildContext context, int index) =>
+              RepoListItem(repo: repoListPageState.repositories[index]),
+          separatorBuilder: (BuildContext context, int index) =>
+              const Divider(height: 0),
+        ),
       ),
     );
   }
