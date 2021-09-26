@@ -18,10 +18,14 @@ class _$RepoPageStateTearOff {
   const _$RepoPageStateTearOff();
 
   _RepoPageState call(
-      {int progress = 0,
+      {FavoriteRepo? repo,
+      bool isFavorite = false,
+      int progress = 0,
       WebResourceError? error,
       WebViewController? webViewController}) {
     return _RepoPageState(
+      repo: repo,
+      isFavorite: isFavorite,
       progress: progress,
       error: error,
       webViewController: webViewController,
@@ -34,6 +38,8 @@ const $RepoPageState = _$RepoPageStateTearOff();
 
 /// @nodoc
 mixin _$RepoPageState {
+  FavoriteRepo? get repo => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
   int get progress => throw _privateConstructorUsedError;
   WebResourceError? get error => throw _privateConstructorUsedError;
   WebViewController? get webViewController =>
@@ -50,7 +56,9 @@ abstract class $RepoPageStateCopyWith<$Res> {
           RepoPageState value, $Res Function(RepoPageState) then) =
       _$RepoPageStateCopyWithImpl<$Res>;
   $Res call(
-      {int progress,
+      {FavoriteRepo? repo,
+      bool isFavorite,
+      int progress,
       WebResourceError? error,
       WebViewController? webViewController});
 }
@@ -66,11 +74,21 @@ class _$RepoPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? repo = freezed,
+    Object? isFavorite = freezed,
     Object? progress = freezed,
     Object? error = freezed,
     Object? webViewController = freezed,
   }) {
     return _then(_value.copyWith(
+      repo: repo == freezed
+          ? _value.repo
+          : repo // ignore: cast_nullable_to_non_nullable
+              as FavoriteRepo?,
+      isFavorite: isFavorite == freezed
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
@@ -95,7 +113,9 @@ abstract class _$RepoPageStateCopyWith<$Res>
       __$RepoPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int progress,
+      {FavoriteRepo? repo,
+      bool isFavorite,
+      int progress,
       WebResourceError? error,
       WebViewController? webViewController});
 }
@@ -113,11 +133,21 @@ class __$RepoPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? repo = freezed,
+    Object? isFavorite = freezed,
     Object? progress = freezed,
     Object? error = freezed,
     Object? webViewController = freezed,
   }) {
     return _then(_RepoPageState(
+      repo: repo == freezed
+          ? _value.repo
+          : repo // ignore: cast_nullable_to_non_nullable
+              as FavoriteRepo?,
+      isFavorite: isFavorite == freezed
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
       progress: progress == freezed
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
@@ -137,8 +167,18 @@ class __$RepoPageStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RepoPageState implements _RepoPageState {
-  _$_RepoPageState({this.progress = 0, this.error, this.webViewController});
+  _$_RepoPageState(
+      {this.repo,
+      this.isFavorite = false,
+      this.progress = 0,
+      this.error,
+      this.webViewController});
 
+  @override
+  final FavoriteRepo? repo;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isFavorite;
   @JsonKey(defaultValue: 0)
   @override
   final int progress;
@@ -149,13 +189,18 @@ class _$_RepoPageState implements _RepoPageState {
 
   @override
   String toString() {
-    return 'RepoPageState(progress: $progress, error: $error, webViewController: $webViewController)';
+    return 'RepoPageState(repo: $repo, isFavorite: $isFavorite, progress: $progress, error: $error, webViewController: $webViewController)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RepoPageState &&
+            (identical(other.repo, repo) ||
+                const DeepCollectionEquality().equals(other.repo, repo)) &&
+            (identical(other.isFavorite, isFavorite) ||
+                const DeepCollectionEquality()
+                    .equals(other.isFavorite, isFavorite)) &&
             (identical(other.progress, progress) ||
                 const DeepCollectionEquality()
                     .equals(other.progress, progress)) &&
@@ -169,6 +214,8 @@ class _$_RepoPageState implements _RepoPageState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(repo) ^
+      const DeepCollectionEquality().hash(isFavorite) ^
       const DeepCollectionEquality().hash(progress) ^
       const DeepCollectionEquality().hash(error) ^
       const DeepCollectionEquality().hash(webViewController);
@@ -181,10 +228,16 @@ class _$_RepoPageState implements _RepoPageState {
 
 abstract class _RepoPageState implements RepoPageState {
   factory _RepoPageState(
-      {int progress,
+      {FavoriteRepo? repo,
+      bool isFavorite,
+      int progress,
       WebResourceError? error,
       WebViewController? webViewController}) = _$_RepoPageState;
 
+  @override
+  FavoriteRepo? get repo => throw _privateConstructorUsedError;
+  @override
+  bool get isFavorite => throw _privateConstructorUsedError;
   @override
   int get progress => throw _privateConstructorUsedError;
   @override

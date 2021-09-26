@@ -11,7 +11,7 @@ _$_Owner _$$_OwnerFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Owner(
-          login: $checkedConvert('login', (v) => v as String?),
+          login: $checkedConvert('login', (v) => v as String),
           id: $checkedConvert('id', (v) => v as int),
           nodeId: $checkedConvert('node_id', (v) => v as String?),
           avatarUrl: $checkedConvert('avatar_url', (v) => v as String),

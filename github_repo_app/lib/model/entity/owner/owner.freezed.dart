@@ -22,7 +22,7 @@ class _$OwnerTearOff {
   const _$OwnerTearOff();
 
   _Owner call(
-      {String? login,
+      {required String login,
       required int id,
       String? nodeId,
       required String avatarUrl,
@@ -70,7 +70,7 @@ const $Owner = _$OwnerTearOff();
 
 /// @nodoc
 mixin _$Owner {
-  String? get login => throw _privateConstructorUsedError;
+  String get login => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String? get nodeId => throw _privateConstructorUsedError;
   String get avatarUrl => throw _privateConstructorUsedError;
@@ -98,7 +98,7 @@ abstract class $OwnerCopyWith<$Res> {
   factory $OwnerCopyWith(Owner value, $Res Function(Owner) then) =
       _$OwnerCopyWithImpl<$Res>;
   $Res call(
-      {String? login,
+      {String login,
       int id,
       String? nodeId,
       String avatarUrl,
@@ -149,7 +149,7 @@ class _$OwnerCopyWithImpl<$Res> implements $OwnerCopyWith<$Res> {
       login: login == freezed
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ abstract class _$OwnerCopyWith<$Res> implements $OwnerCopyWith<$Res> {
       __$OwnerCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? login,
+      {String login,
       int id,
       String? nodeId,
       String avatarUrl,
@@ -276,7 +276,7 @@ class __$OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
       login: login == freezed
           ? _value.login
           : login // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -349,7 +349,7 @@ class __$OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Owner implements _Owner {
   _$_Owner(
-      {this.login,
+      {required this.login,
       required this.id,
       this.nodeId,
       required this.avatarUrl,
@@ -371,7 +371,7 @@ class _$_Owner implements _Owner {
       _$$_OwnerFromJson(json);
 
   @override
-  final String? login;
+  final String login;
   @override
   final int id;
   @override
@@ -497,7 +497,7 @@ class _$_Owner implements _Owner {
 
 abstract class _Owner implements Owner {
   factory _Owner(
-      {String? login,
+      {required String login,
       required int id,
       String? nodeId,
       required String avatarUrl,
@@ -518,7 +518,7 @@ abstract class _Owner implements Owner {
   factory _Owner.fromJson(Map<String, dynamic> json) = _$_Owner.fromJson;
 
   @override
-  String? get login => throw _privateConstructorUsedError;
+  String get login => throw _privateConstructorUsedError;
   @override
   int get id => throw _privateConstructorUsedError;
   @override

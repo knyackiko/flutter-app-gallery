@@ -23,7 +23,7 @@ class _$FailureReasonTearOff {
     );
   }
 
-  Unexpected unexpected({required Exception exception}) {
+  Unexpected unexpected({Exception? exception}) {
     return Unexpected(
       exception: exception,
     );
@@ -45,7 +45,7 @@ mixin _$FailureReason {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Response response) notOk,
-    required TResult Function(Exception exception) unexpected,
+    required TResult Function(Exception? exception) unexpected,
     required TResult Function(CheckedFromJsonException exception)
         invalidJsonFormat,
   }) =>
@@ -53,14 +53,14 @@ mixin _$FailureReason {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
     required TResult orElse(),
   }) =>
@@ -170,7 +170,7 @@ class _$NotOk implements NotOk {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Response response) notOk,
-    required TResult Function(Exception exception) unexpected,
+    required TResult Function(Exception? exception) unexpected,
     required TResult Function(CheckedFromJsonException exception)
         invalidJsonFormat,
   }) {
@@ -181,7 +181,7 @@ class _$NotOk implements NotOk {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
   }) {
     return notOk?.call(response);
@@ -191,7 +191,7 @@ class _$NotOk implements NotOk {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
     required TResult orElse(),
   }) {
@@ -249,7 +249,7 @@ abstract class $UnexpectedCopyWith<$Res> {
   factory $UnexpectedCopyWith(
           Unexpected value, $Res Function(Unexpected) then) =
       _$UnexpectedCopyWithImpl<$Res>;
-  $Res call({Exception exception});
+  $Res call({Exception? exception});
 }
 
 /// @nodoc
@@ -269,7 +269,7 @@ class _$UnexpectedCopyWithImpl<$Res> extends _$FailureReasonCopyWithImpl<$Res>
       exception: exception == freezed
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
-              as Exception,
+              as Exception?,
     ));
   }
 }
@@ -277,10 +277,10 @@ class _$UnexpectedCopyWithImpl<$Res> extends _$FailureReasonCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Unexpected implements Unexpected {
-  const _$Unexpected({required this.exception});
+  const _$Unexpected({this.exception});
 
   @override
-  final Exception exception;
+  final Exception? exception;
 
   @override
   String toString() {
@@ -309,7 +309,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Response response) notOk,
-    required TResult Function(Exception exception) unexpected,
+    required TResult Function(Exception? exception) unexpected,
     required TResult Function(CheckedFromJsonException exception)
         invalidJsonFormat,
   }) {
@@ -320,7 +320,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
   }) {
     return unexpected?.call(exception);
@@ -330,7 +330,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
     required TResult orElse(),
   }) {
@@ -376,9 +376,9 @@ class _$Unexpected implements Unexpected {
 }
 
 abstract class Unexpected implements FailureReason {
-  const factory Unexpected({required Exception exception}) = _$Unexpected;
+  const factory Unexpected({Exception? exception}) = _$Unexpected;
 
-  Exception get exception => throw _privateConstructorUsedError;
+  Exception? get exception => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UnexpectedCopyWith<Unexpected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -451,7 +451,7 @@ class _$InvalidJsonFormat implements InvalidJsonFormat {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Response response) notOk,
-    required TResult Function(Exception exception) unexpected,
+    required TResult Function(Exception? exception) unexpected,
     required TResult Function(CheckedFromJsonException exception)
         invalidJsonFormat,
   }) {
@@ -462,7 +462,7 @@ class _$InvalidJsonFormat implements InvalidJsonFormat {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
   }) {
     return invalidJsonFormat?.call(exception);
@@ -472,7 +472,7 @@ class _$InvalidJsonFormat implements InvalidJsonFormat {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Response response)? notOk,
-    TResult Function(Exception exception)? unexpected,
+    TResult Function(Exception? exception)? unexpected,
     TResult Function(CheckedFromJsonException exception)? invalidJsonFormat,
     required TResult orElse(),
   }) {

@@ -8,15 +8,11 @@ class FavoriteButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final repoPageViewModel = watch(repoPageViewModelProvider.notifier);
+    final repoPageState = watch(repoPageViewModelProvider);
 
     return FloatingActionButton(
-      onPressed: () async {
-        final String url = (await repoPageViewModel.getCurrentUrl()) ?? '';
-        // ignore: deprecated_member_use
-        Scaffold.of(context).showSnackBar(
-          SnackBar(content: Text('Favorited $url')),
-        );
-      },
+      onPressed: () => repoPageViewModel.toggleFavorite(),
+      foregroundColor: repoPageState.isFavorite ? Colors.pink : Colors.white,
       child: const Icon(Icons.favorite),
     );
   }

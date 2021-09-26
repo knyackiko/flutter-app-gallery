@@ -10,7 +10,7 @@ class FailureReason with _$FailureReason {
     required Response response,
   }) = NotOk;
   const factory FailureReason.unexpected({
-    required Exception exception,
+    Exception? exception,
   }) = Unexpected;
   const factory FailureReason.invalidJsonFormat({
     required CheckedFromJsonException exception,

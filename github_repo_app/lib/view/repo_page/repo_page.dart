@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/entity/repo/repo.dart';
+import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
 import 'package:github_repo_app/view/repo_page/favorite_button.dart';
 import 'package:github_repo_app/view/repo_page/web_view_failed_body.dart';
 import 'package:github_repo_app/view/shared/app_bar_with_progress_bar.dart';
@@ -13,15 +13,13 @@ class RepoPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final repo =
-        (ModalRoute.of(context)!.settings.arguments as RepoPageArguments).repo;
     final repoPageViewModel = watch(repoPageViewModelProvider.notifier);
     final repoPageState = watch(repoPageViewModelProvider);
 
     return Scaffold(
       appBar: AppBarWithProgressBar(
         appBar: AppBar(
-          title: Text(repo.name),
+          title: Text(repoPageState.repo!.name),
           centerTitle: true,
           actions: [
             IconButton(
@@ -40,7 +38,7 @@ class RepoPage extends ConsumerWidget {
             visible: repoPageState.error == null,
             replacement: const WebViewFailedBody(),
             child: WebView(
-              initialUrl: repo.htmlUrl,
+              initialUrl: repoPageState.repo!.htmlUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) =>
                   repoPageViewModel.updateWebViewController(webViewController),
@@ -59,7 +57,7 @@ class RepoPage extends ConsumerWidget {
 }
 
 class RepoPageArguments {
-  final Repo repo;
+  final FavoriteRepo repo;
 
   RepoPageArguments(this.repo);
 }
