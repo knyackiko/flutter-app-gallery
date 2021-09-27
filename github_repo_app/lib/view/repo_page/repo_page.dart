@@ -20,7 +20,7 @@ class RepoPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBarWithProgressBar(
         appBar: AppBar(
-          title: Text(repoPageState.repo!.name),
+          title: Text(repoPageState.repo?.name ?? ''),
           centerTitle: true,
           actions: [
             IconButton(
@@ -42,7 +42,7 @@ class RepoPage extends ConsumerWidget {
             visible: repoPageState.error == null,
             replacement: const WebViewFailedBody(),
             child: WebView(
-              initialUrl: repoPageState.repo!.htmlUrl,
+              initialUrl: repoPageState.repo?.htmlUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (WebViewController webViewController) =>
                   repoPageViewModel.updateWebViewController(webViewController),
