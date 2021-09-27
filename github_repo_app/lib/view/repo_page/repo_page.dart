@@ -5,6 +5,7 @@ import 'package:github_repo_app/view/repo_page/favorite_button.dart';
 import 'package:github_repo_app/view/repo_page/web_view_failed_body.dart';
 import 'package:github_repo_app/view/shared/app_bar_with_progress_bar.dart';
 import 'package:github_repo_app/view_model/repo_page/repo_page_view_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class RepoPage extends ConsumerWidget {
@@ -23,7 +24,10 @@ class RepoPage extends ConsumerWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () => debugPrint('Jump to GitHub App'),
+              onPressed: () => launch(
+                repoPageState.repo!.htmlUrl,
+                statusBarBrightness: Theme.of(context).brightness,
+              ),
               icon: const Icon(Icons.launch),
             ),
           ],

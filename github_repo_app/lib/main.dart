@@ -14,9 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'An app to show GitHub repositories',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       initialRoute: MainPage.routeName,
       routes: <String, WidgetBuilder>{
         MainPage.routeName: (BuildContext context) => const MainPage(),
