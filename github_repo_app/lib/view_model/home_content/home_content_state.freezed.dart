@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'repo_list_content_state.dart';
+part of 'home_content_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,44 +14,44 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$RepoListContentStateTearOff {
-  const _$RepoListContentStateTearOff();
+class _$HomeContentStateTearOff {
+  const _$HomeContentStateTearOff();
 
-  _RepoListContentState call({List<Repo> repositories = const []}) {
-    return _RepoListContentState(
+  _HomeContentState call({List<Repo> repositories = const []}) {
+    return _HomeContentState(
       repositories: repositories,
     );
   }
 }
 
 /// @nodoc
-const $RepoListContentState = _$RepoListContentStateTearOff();
+const $HomeContentState = _$HomeContentStateTearOff();
 
 /// @nodoc
-mixin _$RepoListContentState {
+mixin _$HomeContentState {
   List<Repo> get repositories => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RepoListContentStateCopyWith<RepoListContentState> get copyWith =>
+  $HomeContentStateCopyWith<HomeContentState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RepoListContentStateCopyWith<$Res> {
-  factory $RepoListContentStateCopyWith(RepoListContentState value,
-          $Res Function(RepoListContentState) then) =
-      _$RepoListContentStateCopyWithImpl<$Res>;
+abstract class $HomeContentStateCopyWith<$Res> {
+  factory $HomeContentStateCopyWith(
+          HomeContentState value, $Res Function(HomeContentState) then) =
+      _$HomeContentStateCopyWithImpl<$Res>;
   $Res call({List<Repo> repositories});
 }
 
 /// @nodoc
-class _$RepoListContentStateCopyWithImpl<$Res>
-    implements $RepoListContentStateCopyWith<$Res> {
-  _$RepoListContentStateCopyWithImpl(this._value, this._then);
+class _$HomeContentStateCopyWithImpl<$Res>
+    implements $HomeContentStateCopyWith<$Res> {
+  _$HomeContentStateCopyWithImpl(this._value, this._then);
 
-  final RepoListContentState _value;
+  final HomeContentState _value;
   // ignore: unused_field
-  final $Res Function(RepoListContentState) _then;
+  final $Res Function(HomeContentState) _then;
 
   @override
   $Res call({
@@ -67,31 +67,31 @@ class _$RepoListContentStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RepoListContentStateCopyWith<$Res>
-    implements $RepoListContentStateCopyWith<$Res> {
-  factory _$RepoListContentStateCopyWith(_RepoListContentState value,
-          $Res Function(_RepoListContentState) then) =
-      __$RepoListContentStateCopyWithImpl<$Res>;
+abstract class _$HomeContentStateCopyWith<$Res>
+    implements $HomeContentStateCopyWith<$Res> {
+  factory _$HomeContentStateCopyWith(
+          _HomeContentState value, $Res Function(_HomeContentState) then) =
+      __$HomeContentStateCopyWithImpl<$Res>;
   @override
   $Res call({List<Repo> repositories});
 }
 
 /// @nodoc
-class __$RepoListContentStateCopyWithImpl<$Res>
-    extends _$RepoListContentStateCopyWithImpl<$Res>
-    implements _$RepoListContentStateCopyWith<$Res> {
-  __$RepoListContentStateCopyWithImpl(
-      _RepoListContentState _value, $Res Function(_RepoListContentState) _then)
-      : super(_value, (v) => _then(v as _RepoListContentState));
+class __$HomeContentStateCopyWithImpl<$Res>
+    extends _$HomeContentStateCopyWithImpl<$Res>
+    implements _$HomeContentStateCopyWith<$Res> {
+  __$HomeContentStateCopyWithImpl(
+      _HomeContentState _value, $Res Function(_HomeContentState) _then)
+      : super(_value, (v) => _then(v as _HomeContentState));
 
   @override
-  _RepoListContentState get _value => super._value as _RepoListContentState;
+  _HomeContentState get _value => super._value as _HomeContentState;
 
   @override
   $Res call({
     Object? repositories = freezed,
   }) {
-    return _then(_RepoListContentState(
+    return _then(_HomeContentState(
       repositories: repositories == freezed
           ? _value.repositories
           : repositories // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$RepoListContentStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RepoListContentState implements _RepoListContentState {
-  _$_RepoListContentState({this.repositories = const []});
+class _$_HomeContentState implements _HomeContentState {
+  _$_HomeContentState({this.repositories = const []});
 
   @JsonKey(defaultValue: const [])
   @override
@@ -111,13 +111,13 @@ class _$_RepoListContentState implements _RepoListContentState {
 
   @override
   String toString() {
-    return 'RepoListContentState(repositories: $repositories)';
+    return 'HomeContentState(repositories: $repositories)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RepoListContentState &&
+        (other is _HomeContentState &&
             (identical(other.repositories, repositories) ||
                 const DeepCollectionEquality()
                     .equals(other.repositories, repositories)));
@@ -129,19 +129,17 @@ class _$_RepoListContentState implements _RepoListContentState {
 
   @JsonKey(ignore: true)
   @override
-  _$RepoListContentStateCopyWith<_RepoListContentState> get copyWith =>
-      __$RepoListContentStateCopyWithImpl<_RepoListContentState>(
-          this, _$identity);
+  _$HomeContentStateCopyWith<_HomeContentState> get copyWith =>
+      __$HomeContentStateCopyWithImpl<_HomeContentState>(this, _$identity);
 }
 
-abstract class _RepoListContentState implements RepoListContentState {
-  factory _RepoListContentState({List<Repo> repositories}) =
-      _$_RepoListContentState;
+abstract class _HomeContentState implements HomeContentState {
+  factory _HomeContentState({List<Repo> repositories}) = _$_HomeContentState;
 
   @override
   List<Repo> get repositories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RepoListContentStateCopyWith<_RepoListContentState> get copyWith =>
+  _$HomeContentStateCopyWith<_HomeContentState> get copyWith =>
       throw _privateConstructorUsedError;
 }

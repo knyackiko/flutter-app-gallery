@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_app/view/main_page/favorite_content/favorite_content.dart';
-import 'package:github_repo_app/view/main_page/repo_list_content/repo_list_content.dart';
+import 'package:github_repo_app/view/main_page/home_content/home_content.dart';
 import 'package:github_repo_app/view_model/main_page/main_page_view_model.dart';
 
 class MainPage extends ConsumerWidget {
@@ -13,7 +13,7 @@ class MainPage extends ConsumerWidget {
     final mainPageViewModel = watch(mainPageViewModelProvider.notifier);
     final mainPageState = watch(mainPageViewModelProvider);
     final mainPageContents = <MainPageContent>[
-      RepoListContent(),
+      HomeContent(),
       FavoriteContent(),
     ];
 

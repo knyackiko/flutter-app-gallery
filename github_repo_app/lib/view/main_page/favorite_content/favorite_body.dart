@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/view/main_page/repo_list_content/repo_list_item.dart';
+import 'package:github_repo_app/view/main_page/home_content/repo_list_item.dart';
 import 'package:github_repo_app/view_model/favorite_content/favorite_content_view_model.dart';
 
 class FavoriteBody extends ConsumerWidget {
