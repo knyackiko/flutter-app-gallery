@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_app/const/color.dart';
 import 'package:github_repo_app/view/search_page/search_page.dart';
+import 'package:github_repo_app/view_model/search_box/search_box_view_model.dart';
 
-class SearchBox extends StatelessWidget {
+class SearchBox extends ConsumerWidget {
   SearchBox({SearchBoxParam? param, Key? key}) : super(key: key) {
     _param = param ?? SearchBoxParam();
   }
@@ -20,7 +22,7 @@ class SearchBox extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
     return GestureDetector(
       onTap: () {
         if (_param.onTap == null) {
@@ -40,6 +42,10 @@ class SearchBox extends StatelessWidget {
           ignoring: !_param.enabled,
           child: TextFormField(
             enabled: _param.enabled,
+            autofocus: _param.enabled,
+            controller: _param.enabled
+                ? watch(searchBoxTextEditingControllerProvider)
+                : null,
             decoration: InputDecoration(
               prefixIcon: const Icon(
                 Icons.search,
