@@ -36,7 +36,12 @@ class SearchResultPage extends ConsumerWidget {
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemCount: searchResultPageState.resultLength,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(searchResultPageState.repositories[index].name);
+                  if (searchResultPageState.type ==
+                      SearchCategoryType.repository) {
+                    return Text(searchResultPageState.repositories[index].name);
+                  } else {
+                    return Text(searchResultPageState.users[index].login);
+                  }
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(height: 0),

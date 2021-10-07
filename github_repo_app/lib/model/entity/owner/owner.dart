@@ -24,6 +24,7 @@ class Owner with _$Owner {
     String? receivedEventsUrl,
     String? type,
     bool? siteAdmin,
+    double? score,
   }) = _Owner;
 
   factory Owner.fromJson(Map<String, dynamic> json) => _$OwnerFromJson(json);

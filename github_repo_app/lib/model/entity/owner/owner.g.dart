@@ -32,6 +32,7 @@ _$_Owner _$$_OwnerFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('received_events_url', (v) => v as String?),
           type: $checkedConvert('type', (v) => v as String?),
           siteAdmin: $checkedConvert('site_admin', (v) => v as bool?),
+          score: $checkedConvert('score', (v) => (v as num?)?.toDouble()),
         );
         return val;
       },
@@ -72,4 +73,5 @@ Map<String, dynamic> _$$_OwnerToJson(_$_Owner instance) => <String, dynamic>{
       'received_events_url': instance.receivedEventsUrl,
       'type': instance.type,
       'site_admin': instance.siteAdmin,
+      'score': instance.score,
     };
