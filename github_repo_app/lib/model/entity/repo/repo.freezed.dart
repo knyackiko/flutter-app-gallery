@@ -91,10 +91,13 @@ class _$RepoTearOff {
       bool? disabled,
       int? openIssuesCount,
       License? license,
+      bool? allowForking,
+      String? visibility,
       int? forks,
       int? openIssues,
       int? watchers,
-      String? defaultBranch}) {
+      String? defaultBranch,
+      double? score}) {
     return _Repo(
       id: id,
       nodeId: nodeId,
@@ -165,10 +168,13 @@ class _$RepoTearOff {
       disabled: disabled,
       openIssuesCount: openIssuesCount,
       license: license,
+      allowForking: allowForking,
+      visibility: visibility,
       forks: forks,
       openIssues: openIssues,
       watchers: watchers,
       defaultBranch: defaultBranch,
+      score: score,
     );
   }
 
@@ -251,10 +257,13 @@ mixin _$Repo {
   bool? get disabled => throw _privateConstructorUsedError;
   int? get openIssuesCount => throw _privateConstructorUsedError;
   License? get license => throw _privateConstructorUsedError;
+  bool? get allowForking => throw _privateConstructorUsedError;
+  String? get visibility => throw _privateConstructorUsedError;
   int? get forks => throw _privateConstructorUsedError;
   int? get openIssues => throw _privateConstructorUsedError;
   int? get watchers => throw _privateConstructorUsedError;
   String? get defaultBranch => throw _privateConstructorUsedError;
+  double? get score => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -335,10 +344,13 @@ abstract class $RepoCopyWith<$Res> {
       bool? disabled,
       int? openIssuesCount,
       License? license,
+      bool? allowForking,
+      String? visibility,
       int? forks,
       int? openIssues,
       int? watchers,
-      String? defaultBranch});
+      String? defaultBranch,
+      double? score});
 
   $OwnerCopyWith<$Res> get owner;
   $LicenseCopyWith<$Res>? get license;
@@ -423,10 +435,13 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
     Object? disabled = freezed,
     Object? openIssuesCount = freezed,
     Object? license = freezed,
+    Object? allowForking = freezed,
+    Object? visibility = freezed,
     Object? forks = freezed,
     Object? openIssues = freezed,
     Object? watchers = freezed,
     Object? defaultBranch = freezed,
+    Object? score = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -705,6 +720,14 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
           ? _value.license
           : license // ignore: cast_nullable_to_non_nullable
               as License?,
+      allowForking: allowForking == freezed
+          ? _value.allowForking
+          : allowForking // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
       forks: forks == freezed
           ? _value.forks
           : forks // ignore: cast_nullable_to_non_nullable
@@ -721,6 +744,10 @@ class _$RepoCopyWithImpl<$Res> implements $RepoCopyWith<$Res> {
           ? _value.defaultBranch
           : defaultBranch // ignore: cast_nullable_to_non_nullable
               as String?,
+      score: score == freezed
+          ? _value.score
+          : score // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 
@@ -818,10 +845,13 @@ abstract class _$RepoCopyWith<$Res> implements $RepoCopyWith<$Res> {
       bool? disabled,
       int? openIssuesCount,
       License? license,
+      bool? allowForking,
+      String? visibility,
       int? forks,
       int? openIssues,
       int? watchers,
-      String? defaultBranch});
+      String? defaultBranch,
+      double? score});
 
   @override
   $OwnerCopyWith<$Res> get owner;
@@ -909,10 +939,13 @@ class __$RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
     Object? disabled = freezed,
     Object? openIssuesCount = freezed,
     Object? license = freezed,
+    Object? allowForking = freezed,
+    Object? visibility = freezed,
     Object? forks = freezed,
     Object? openIssues = freezed,
     Object? watchers = freezed,
     Object? defaultBranch = freezed,
+    Object? score = freezed,
   }) {
     return _then(_Repo(
       id: id == freezed
@@ -1191,6 +1224,14 @@ class __$RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
           ? _value.license
           : license // ignore: cast_nullable_to_non_nullable
               as License?,
+      allowForking: allowForking == freezed
+          ? _value.allowForking
+          : allowForking // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      visibility: visibility == freezed
+          ? _value.visibility
+          : visibility // ignore: cast_nullable_to_non_nullable
+              as String?,
       forks: forks == freezed
           ? _value.forks
           : forks // ignore: cast_nullable_to_non_nullable
@@ -1207,6 +1248,10 @@ class __$RepoCopyWithImpl<$Res> extends _$RepoCopyWithImpl<$Res>
           ? _value.defaultBranch
           : defaultBranch // ignore: cast_nullable_to_non_nullable
               as String?,
+      score: score == freezed
+          ? _value.score
+          : score // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -1284,10 +1329,13 @@ class _$_Repo implements _Repo {
       this.disabled,
       this.openIssuesCount,
       this.license,
+      this.allowForking,
+      this.visibility,
       this.forks,
       this.openIssues,
       this.watchers,
-      this.defaultBranch});
+      this.defaultBranch,
+      this.score});
 
   factory _$_Repo.fromJson(Map<String, dynamic> json) => _$$_RepoFromJson(json);
 
@@ -1430,6 +1478,10 @@ class _$_Repo implements _Repo {
   @override
   final License? license;
   @override
+  final bool? allowForking;
+  @override
+  final String? visibility;
+  @override
   final int? forks;
   @override
   final int? openIssues;
@@ -1437,10 +1489,12 @@ class _$_Repo implements _Repo {
   final int? watchers;
   @override
   final String? defaultBranch;
+  @override
+  final double? score;
 
   @override
   String toString() {
-    return 'Repo(id: $id, nodeId: $nodeId, name: $name, fullName: $fullName, private: $private, owner: $owner, htmlUrl: $htmlUrl, description: $description, fork: $fork, url: $url, forksUrl: $forksUrl, keysUrl: $keysUrl, collaboratorsUrl: $collaboratorsUrl, teamsUrl: $teamsUrl, hooksUrl: $hooksUrl, issueEventsUrl: $issueEventsUrl, eventsUrl: $eventsUrl, assigneesUrl: $assigneesUrl, branchesUrl: $branchesUrl, tagsUrl: $tagsUrl, blobsUrl: $blobsUrl, gitTagsUrl: $gitTagsUrl, gitRefsUrl: $gitRefsUrl, treesUrl: $treesUrl, statusesUrl: $statusesUrl, languagesUrl: $languagesUrl, stargazersUrl: $stargazersUrl, contributorsUrl: $contributorsUrl, subscribersUrl: $subscribersUrl, subscriptionUrl: $subscriptionUrl, commitsUrl: $commitsUrl, gitCommitsUrl: $gitCommitsUrl, commentsUrl: $commentsUrl, issueCommentUrl: $issueCommentUrl, contentsUrl: $contentsUrl, compareUrl: $compareUrl, mergesUrl: $mergesUrl, archiveUrl: $archiveUrl, downloadsUrl: $downloadsUrl, issuesUrl: $issuesUrl, pullsUrl: $pullsUrl, milestonesUrl: $milestonesUrl, notificationsUrl: $notificationsUrl, labelsUrl: $labelsUrl, releasesUrl: $releasesUrl, deploymentsUrl: $deploymentsUrl, createdAt: $createdAt, updatedAt: $updatedAt, pushedAt: $pushedAt, gitUrl: $gitUrl, sshUrl: $sshUrl, cloneUrl: $cloneUrl, svnUrl: $svnUrl, homepage: $homepage, size: $size, stargazersCount: $stargazersCount, watchersCount: $watchersCount, language: $language, hasIssues: $hasIssues, hasProjects: $hasProjects, hasDownloads: $hasDownloads, hasWiki: $hasWiki, hasPages: $hasPages, forksCount: $forksCount, mirrorUrl: $mirrorUrl, archived: $archived, disabled: $disabled, openIssuesCount: $openIssuesCount, license: $license, forks: $forks, openIssues: $openIssues, watchers: $watchers, defaultBranch: $defaultBranch)';
+    return 'Repo(id: $id, nodeId: $nodeId, name: $name, fullName: $fullName, private: $private, owner: $owner, htmlUrl: $htmlUrl, description: $description, fork: $fork, url: $url, forksUrl: $forksUrl, keysUrl: $keysUrl, collaboratorsUrl: $collaboratorsUrl, teamsUrl: $teamsUrl, hooksUrl: $hooksUrl, issueEventsUrl: $issueEventsUrl, eventsUrl: $eventsUrl, assigneesUrl: $assigneesUrl, branchesUrl: $branchesUrl, tagsUrl: $tagsUrl, blobsUrl: $blobsUrl, gitTagsUrl: $gitTagsUrl, gitRefsUrl: $gitRefsUrl, treesUrl: $treesUrl, statusesUrl: $statusesUrl, languagesUrl: $languagesUrl, stargazersUrl: $stargazersUrl, contributorsUrl: $contributorsUrl, subscribersUrl: $subscribersUrl, subscriptionUrl: $subscriptionUrl, commitsUrl: $commitsUrl, gitCommitsUrl: $gitCommitsUrl, commentsUrl: $commentsUrl, issueCommentUrl: $issueCommentUrl, contentsUrl: $contentsUrl, compareUrl: $compareUrl, mergesUrl: $mergesUrl, archiveUrl: $archiveUrl, downloadsUrl: $downloadsUrl, issuesUrl: $issuesUrl, pullsUrl: $pullsUrl, milestonesUrl: $milestonesUrl, notificationsUrl: $notificationsUrl, labelsUrl: $labelsUrl, releasesUrl: $releasesUrl, deploymentsUrl: $deploymentsUrl, createdAt: $createdAt, updatedAt: $updatedAt, pushedAt: $pushedAt, gitUrl: $gitUrl, sshUrl: $sshUrl, cloneUrl: $cloneUrl, svnUrl: $svnUrl, homepage: $homepage, size: $size, stargazersCount: $stargazersCount, watchersCount: $watchersCount, language: $language, hasIssues: $hasIssues, hasProjects: $hasProjects, hasDownloads: $hasDownloads, hasWiki: $hasWiki, hasPages: $hasPages, forksCount: $forksCount, mirrorUrl: $mirrorUrl, archived: $archived, disabled: $disabled, openIssuesCount: $openIssuesCount, license: $license, allowForking: $allowForking, visibility: $visibility, forks: $forks, openIssues: $openIssues, watchers: $watchers, defaultBranch: $defaultBranch, score: $score)';
   }
 
   @override
@@ -1559,10 +1613,13 @@ class _$_Repo implements _Repo {
             (identical(other.disabled, disabled) || const DeepCollectionEquality().equals(other.disabled, disabled)) &&
             (identical(other.openIssuesCount, openIssuesCount) || const DeepCollectionEquality().equals(other.openIssuesCount, openIssuesCount)) &&
             (identical(other.license, license) || const DeepCollectionEquality().equals(other.license, license)) &&
+            (identical(other.allowForking, allowForking) || const DeepCollectionEquality().equals(other.allowForking, allowForking)) &&
+            (identical(other.visibility, visibility) || const DeepCollectionEquality().equals(other.visibility, visibility)) &&
             (identical(other.forks, forks) || const DeepCollectionEquality().equals(other.forks, forks)) &&
             (identical(other.openIssues, openIssues) || const DeepCollectionEquality().equals(other.openIssues, openIssues)) &&
             (identical(other.watchers, watchers) || const DeepCollectionEquality().equals(other.watchers, watchers)) &&
-            (identical(other.defaultBranch, defaultBranch) || const DeepCollectionEquality().equals(other.defaultBranch, defaultBranch)));
+            (identical(other.defaultBranch, defaultBranch) || const DeepCollectionEquality().equals(other.defaultBranch, defaultBranch)) &&
+            (identical(other.score, score) || const DeepCollectionEquality().equals(other.score, score)));
   }
 
   @override
@@ -1637,10 +1694,13 @@ class _$_Repo implements _Repo {
       const DeepCollectionEquality().hash(disabled) ^
       const DeepCollectionEquality().hash(openIssuesCount) ^
       const DeepCollectionEquality().hash(license) ^
+      const DeepCollectionEquality().hash(allowForking) ^
+      const DeepCollectionEquality().hash(visibility) ^
       const DeepCollectionEquality().hash(forks) ^
       const DeepCollectionEquality().hash(openIssues) ^
       const DeepCollectionEquality().hash(watchers) ^
-      const DeepCollectionEquality().hash(defaultBranch);
+      const DeepCollectionEquality().hash(defaultBranch) ^
+      const DeepCollectionEquality().hash(score);
 
   @JsonKey(ignore: true)
   @override
@@ -1724,10 +1784,13 @@ abstract class _Repo implements Repo {
       bool? disabled,
       int? openIssuesCount,
       License? license,
+      bool? allowForking,
+      String? visibility,
       int? forks,
       int? openIssues,
       int? watchers,
-      String? defaultBranch}) = _$_Repo;
+      String? defaultBranch,
+      double? score}) = _$_Repo;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$_Repo.fromJson;
 
@@ -1870,6 +1933,10 @@ abstract class _Repo implements Repo {
   @override
   License? get license => throw _privateConstructorUsedError;
   @override
+  bool? get allowForking => throw _privateConstructorUsedError;
+  @override
+  String? get visibility => throw _privateConstructorUsedError;
+  @override
   int? get forks => throw _privateConstructorUsedError;
   @override
   int? get openIssues => throw _privateConstructorUsedError;
@@ -1877,6 +1944,8 @@ abstract class _Repo implements Repo {
   int? get watchers => throw _privateConstructorUsedError;
   @override
   String? get defaultBranch => throw _privateConstructorUsedError;
+  @override
+  double? get score => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RepoCopyWith<_Repo> get copyWith => throw _privateConstructorUsedError;

@@ -15,8 +15,13 @@ class RepoRepositoryImpl implements RepoRepository {
   late final DbClient _dbClient;
 
   @override
+  Future<Result<List<Repo>>> findByName(String name) {
+    return _userApiClient.findByName(name);
+  }
+
+  @override
   Future<Result<List<Repo>>> findByUserName(String userName) {
-    return _userApiClient.findRepos(userName);
+    return _userApiClient.findByUserName(userName);
   }
 
   @override

@@ -99,10 +99,13 @@ _$_Repo _$$_RepoFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : License.fromJson(v as Map<String, dynamic>)),
+          allowForking: $checkedConvert('allow_forking', (v) => v as bool?),
+          visibility: $checkedConvert('visibility', (v) => v as String?),
           forks: $checkedConvert('forks', (v) => v as int?),
           openIssues: $checkedConvert('open_issues', (v) => v as int?),
           watchers: $checkedConvert('watchers', (v) => v as int?),
           defaultBranch: $checkedConvert('default_branch', (v) => v as String?),
+          score: $checkedConvert('score', (v) => (v as num?)?.toDouble()),
         );
         return val;
       },
@@ -163,6 +166,7 @@ _$_Repo _$$_RepoFromJson(Map<String, dynamic> json) => $checkedCreate(
         'forksCount': 'forks_count',
         'mirrorUrl': 'mirror_url',
         'openIssuesCount': 'open_issues_count',
+        'allowForking': 'allow_forking',
         'openIssues': 'open_issues',
         'defaultBranch': 'default_branch'
       },
@@ -238,8 +242,11 @@ Map<String, dynamic> _$$_RepoToJson(_$_Repo instance) => <String, dynamic>{
       'disabled': instance.disabled,
       'open_issues_count': instance.openIssuesCount,
       'license': instance.license,
+      'allow_forking': instance.allowForking,
+      'visibility': instance.visibility,
       'forks': instance.forks,
       'open_issues': instance.openIssues,
       'watchers': instance.watchers,
       'default_branch': instance.defaultBranch,
+      'score': instance.score,
     };

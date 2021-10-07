@@ -22,6 +22,7 @@ class Owner with _$Owner {
     String? reposUrl,
     String? eventsUrl,
     String? receivedEventsUrl,
+    String? type,
     bool? siteAdmin,
   }) = _Owner;
 

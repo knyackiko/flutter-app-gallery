@@ -38,6 +38,7 @@ class _$OwnerTearOff {
       String? reposUrl,
       String? eventsUrl,
       String? receivedEventsUrl,
+      String? type,
       bool? siteAdmin}) {
     return _Owner(
       login: login,
@@ -56,6 +57,7 @@ class _$OwnerTearOff {
       reposUrl: reposUrl,
       eventsUrl: eventsUrl,
       receivedEventsUrl: receivedEventsUrl,
+      type: type,
       siteAdmin: siteAdmin,
     );
   }
@@ -86,6 +88,7 @@ mixin _$Owner {
   String? get reposUrl => throw _privateConstructorUsedError;
   String? get eventsUrl => throw _privateConstructorUsedError;
   String? get receivedEventsUrl => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
   bool? get siteAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,6 +117,7 @@ abstract class $OwnerCopyWith<$Res> {
       String? reposUrl,
       String? eventsUrl,
       String? receivedEventsUrl,
+      String? type,
       bool? siteAdmin});
 }
 
@@ -143,6 +147,7 @@ class _$OwnerCopyWithImpl<$Res> implements $OwnerCopyWith<$Res> {
     Object? reposUrl = freezed,
     Object? eventsUrl = freezed,
     Object? receivedEventsUrl = freezed,
+    Object? type = freezed,
     Object? siteAdmin = freezed,
   }) {
     return _then(_value.copyWith(
@@ -210,6 +215,10 @@ class _$OwnerCopyWithImpl<$Res> implements $OwnerCopyWith<$Res> {
           ? _value.receivedEventsUrl
           : receivedEventsUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       siteAdmin: siteAdmin == freezed
           ? _value.siteAdmin
           : siteAdmin // ignore: cast_nullable_to_non_nullable
@@ -240,6 +249,7 @@ abstract class _$OwnerCopyWith<$Res> implements $OwnerCopyWith<$Res> {
       String? reposUrl,
       String? eventsUrl,
       String? receivedEventsUrl,
+      String? type,
       bool? siteAdmin});
 }
 
@@ -270,6 +280,7 @@ class __$OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
     Object? reposUrl = freezed,
     Object? eventsUrl = freezed,
     Object? receivedEventsUrl = freezed,
+    Object? type = freezed,
     Object? siteAdmin = freezed,
   }) {
     return _then(_Owner(
@@ -337,6 +348,10 @@ class __$OwnerCopyWithImpl<$Res> extends _$OwnerCopyWithImpl<$Res>
           ? _value.receivedEventsUrl
           : receivedEventsUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
       siteAdmin: siteAdmin == freezed
           ? _value.siteAdmin
           : siteAdmin // ignore: cast_nullable_to_non_nullable
@@ -365,6 +380,7 @@ class _$_Owner implements _Owner {
       this.reposUrl,
       this.eventsUrl,
       this.receivedEventsUrl,
+      this.type,
       this.siteAdmin});
 
   factory _$_Owner.fromJson(Map<String, dynamic> json) =>
@@ -403,11 +419,13 @@ class _$_Owner implements _Owner {
   @override
   final String? receivedEventsUrl;
   @override
+  final String? type;
+  @override
   final bool? siteAdmin;
 
   @override
   String toString() {
-    return 'Owner(login: $login, id: $id, nodeId: $nodeId, avatarUrl: $avatarUrl, gravatarId: $gravatarId, url: $url, htmlUrl: $htmlUrl, followersUrl: $followersUrl, followingUrl: $followingUrl, gistsUrl: $gistsUrl, starredUrl: $starredUrl, subscriptionsUrl: $subscriptionsUrl, organizationsUrl: $organizationsUrl, reposUrl: $reposUrl, eventsUrl: $eventsUrl, receivedEventsUrl: $receivedEventsUrl, siteAdmin: $siteAdmin)';
+    return 'Owner(login: $login, id: $id, nodeId: $nodeId, avatarUrl: $avatarUrl, gravatarId: $gravatarId, url: $url, htmlUrl: $htmlUrl, followersUrl: $followersUrl, followingUrl: $followingUrl, gistsUrl: $gistsUrl, starredUrl: $starredUrl, subscriptionsUrl: $subscriptionsUrl, organizationsUrl: $organizationsUrl, reposUrl: $reposUrl, eventsUrl: $eventsUrl, receivedEventsUrl: $receivedEventsUrl, type: $type, siteAdmin: $siteAdmin)';
   }
 
   @override
@@ -458,6 +476,8 @@ class _$_Owner implements _Owner {
             (identical(other.receivedEventsUrl, receivedEventsUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.receivedEventsUrl, receivedEventsUrl)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.siteAdmin, siteAdmin) ||
                 const DeepCollectionEquality()
                     .equals(other.siteAdmin, siteAdmin)));
@@ -482,6 +502,7 @@ class _$_Owner implements _Owner {
       const DeepCollectionEquality().hash(reposUrl) ^
       const DeepCollectionEquality().hash(eventsUrl) ^
       const DeepCollectionEquality().hash(receivedEventsUrl) ^
+      const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(siteAdmin);
 
   @JsonKey(ignore: true)
@@ -513,6 +534,7 @@ abstract class _Owner implements Owner {
       String? reposUrl,
       String? eventsUrl,
       String? receivedEventsUrl,
+      String? type,
       bool? siteAdmin}) = _$_Owner;
 
   factory _Owner.fromJson(Map<String, dynamic> json) = _$_Owner.fromJson;
@@ -549,6 +571,8 @@ abstract class _Owner implements Owner {
   String? get eventsUrl => throw _privateConstructorUsedError;
   @override
   String? get receivedEventsUrl => throw _privateConstructorUsedError;
+  @override
+  String? get type => throw _privateConstructorUsedError;
   @override
   bool? get siteAdmin => throw _privateConstructorUsedError;
   @override

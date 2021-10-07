@@ -21,3 +21,5 @@ samples, guidance on mobile development, and a full API reference.
   - <https://api.github.com/repos/octocat/hello-world>
 - [Get a user](https://docs.github.com/ja/rest/reference/users#get-a-user)
   - <https://api.github.com/users/octocat/repos>
+- [Searching for repositories](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories#search-by-repository-name-description-or-contents-of-the-readme-file)
+  - <https://api.github.com/search/repositories?q=sha+in:name&sort=stars>

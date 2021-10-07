@@ -8,6 +8,9 @@ final repoRepositoryProvider =
     Provider<RepoRepository>((ref) => RepoRepositoryImpl(ref));
 
 abstract class RepoRepository {
+  /// 指定したリポジトリを取得します。
+  Future<Result<List<Repo>>> findByName(String name);
+
   /// 指定したユーザのリポジトリを取得します。
   Future<Result<List<Repo>>> findByUserName(String userName);
 

@@ -14,7 +14,20 @@ class UserApiClient {
 
   late final ApiExecutor apiExecutor;
 
-  Future<Result<List<Repo>>> findRepos(String userName) async {
+  Future<Result<List<Repo>>> findByName(String name) async {
+    if (name.isEmpty) {
+      return const Result.success([]);
+    }
+    return await apiExecutor.execute<List<Repo>>(
+      executor: () => http.get(Uri.parse(
+          'https://api.github.com/search/repositories?q=$name+in:name')),
+      fromJson: (json) {
+        return (json['items'] as List).map((j) => Repo.fromJson(j)).toList();
+      },
+    );
+  }
+
+  Future<Result<List<Repo>>> findByUserName(String userName) async {
     if (userName.isEmpty) {
       return const Result.success([]);
     }

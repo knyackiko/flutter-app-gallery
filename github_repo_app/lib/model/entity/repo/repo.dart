@@ -77,10 +77,13 @@ class Repo with _$Repo {
     bool? disabled,
     int? openIssuesCount,
     License? license,
+    bool? allowForking,
+    String? visibility,
     int? forks,
     int? openIssues,
     int? watchers,
     String? defaultBranch,
+    double? score,
   }) = _Repo;
 
   factory Repo.fromJson(Map<String, dynamic> json) => _$RepoFromJson(json);

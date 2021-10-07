@@ -25,10 +25,3 @@ class SearchPage extends ConsumerWidget {
     );
   }
 }
-
-class SearchCategory {
-  final Icon icon;
-  final String name;
-
-  SearchCategory(this.icon, this.name);
-}
