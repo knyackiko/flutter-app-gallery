@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
-import 'package:github_repo_app/model/repository/repo_repository.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/repo_repository.dart';
 import 'package:github_repo_app/view_model/favorite_content/favorite_content_view_model.dart';
 import 'package:github_repo_app/view_model/repo_page/repo_page_state.dart';
 import 'package:state_notifier/state_notifier.dart';

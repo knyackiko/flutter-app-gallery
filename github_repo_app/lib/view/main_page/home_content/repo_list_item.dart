@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
 import 'package:github_repo_app/view/repo_page/repo_page.dart';
 import 'package:github_repo_app/view_model/repo_page/repo_page_view_model.dart';
 

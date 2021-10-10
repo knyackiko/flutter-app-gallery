@@ -1,9 +1,9 @@
-import 'package:github_repo_app/model/entity/repo/repo.dart';
-import 'package:github_repo_app/model/repository/data_source/api/repository_api_client.dart';
-import 'package:github_repo_app/model/repository/data_source/api/user_api_client.dart';
-import 'package:github_repo_app/model/repository/data_source/db/db_client.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
-import 'package:github_repo_app/model/repository/repo_repository.dart';
+import 'package:github_repo_app/entity/repo/repo.dart';
+import 'package:github_repo_app/repository/data_source/api/repository_api_client.dart';
+import 'package:github_repo_app/repository/data_source/api/user_api_client.dart';
+import 'package:github_repo_app/repository/data_source/db/db_client.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/repo_repository.dart';
 import 'package:github_repo_app/util/result/result.dart';
 
 class RepoRepositoryImpl implements RepoRepository {

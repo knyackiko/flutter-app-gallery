@@ -1,5 +1,5 @@
-import 'package:github_repo_app/model/entity/repo/repo.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/base_model.dart';
+import 'package:github_repo_app/entity/repo/repo.dart';
+import 'package:github_repo_app/repository/data_source/db/table/base_model.dart';
 
 class FavoriteRepo extends BaseModel {
   late int id;

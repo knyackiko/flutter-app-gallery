@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_app/const/color.dart';
-import 'package:github_repo_app/model/entity/owner/owner.dart';
+import 'package:github_repo_app/entity/owner/owner.dart';
 
 class UserListItem extends StatelessWidget {
   const UserListItem({required this.user, this.onTap, Key? key})

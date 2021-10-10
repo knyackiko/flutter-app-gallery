@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_repo_app/const/color.dart';
-import 'package:github_repo_app/model/entity/repo/repo.dart';
+import 'package:github_repo_app/entity/repo/repo.dart';
 import 'package:intl/intl.dart';
 
 class RepositoryListItem extends StatelessWidget {

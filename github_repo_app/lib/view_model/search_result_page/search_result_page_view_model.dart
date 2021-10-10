@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/repository/repo_repository.dart';
-import 'package:github_repo_app/model/repository/user_repository.dart';
+import 'package:github_repo_app/repository/repo_repository.dart';
+import 'package:github_repo_app/repository/user_repository.dart';
 import 'package:github_repo_app/view/search_page/search_page_body_category.dart';
 import 'package:github_repo_app/view_model/search_result_page/search_result_page_state.dart';
 

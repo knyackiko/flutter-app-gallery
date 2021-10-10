@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:github_repo_app/model/entity/owner/owner.dart';
-import 'package:github_repo_app/model/entity/repo/repo.dart';
+import 'package:github_repo_app/entity/owner/owner.dart';
+import 'package:github_repo_app/entity/repo/repo.dart';
 import 'package:github_repo_app/util/failure_reason/failure_reason.dart';
 import 'package:github_repo_app/view/search_page/search_page_body_category.dart';
 

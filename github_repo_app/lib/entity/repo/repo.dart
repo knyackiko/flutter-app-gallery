@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:github_repo_app/model/entity/license/license.dart';
-import 'package:github_repo_app/model/entity/owner/owner.dart';
+import 'package:github_repo_app/entity/license/license.dart';
+import 'package:github_repo_app/entity/owner/owner.dart';
 
 part 'repo.freezed.dart';
 part 'repo.g.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/entity/repo/repo.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
-import 'package:github_repo_app/model/repository/repo_repository_impl.dart';
+import 'package:github_repo_app/entity/repo/repo.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/repo_repository_impl.dart';
 import 'package:github_repo_app/util/result/result.dart';
 
 final repoRepositoryProvider =

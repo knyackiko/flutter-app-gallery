@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/repository/repo_repository.dart';
+import 'package:github_repo_app/repository/repo_repository.dart';
 import 'package:github_repo_app/view_model/favorite_content/favorite_content_state.dart';
 import 'package:state_notifier/state_notifier.dart';
 

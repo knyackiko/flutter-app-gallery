@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
 import 'package:webview_flutter/platform_interface.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 

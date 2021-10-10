@@ -1,6 +1,6 @@
-import 'package:github_repo_app/model/entity/owner/owner.dart';
-import 'package:github_repo_app/model/repository/data_source/api/user_api_client.dart';
-import 'package:github_repo_app/model/repository/user_repository.dart';
+import 'package:github_repo_app/entity/owner/owner.dart';
+import 'package:github_repo_app/repository/data_source/api/user_api_client.dart';
+import 'package:github_repo_app/repository/user_repository.dart';
 import 'package:github_repo_app/util/result/result.dart';
 
 class UserRepositoryImpl implements UserRepository {

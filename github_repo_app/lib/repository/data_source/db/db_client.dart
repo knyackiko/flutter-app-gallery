@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/base_model.dart';
-import 'package:github_repo_app/model/repository/data_source/db/table/favorite_repo.dart';
+import 'package:github_repo_app/repository/data_source/db/table/base_model.dart';
+import 'package:github_repo_app/repository/data_source/db/table/favorite_repo.dart';
 import 'package:github_repo_app/util/failure_reason/failure_reason.dart';
 import 'package:github_repo_app/util/result/result.dart';
 import 'package:path/path.dart';
