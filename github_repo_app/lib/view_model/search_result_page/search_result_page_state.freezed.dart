@@ -22,13 +22,15 @@ class _$SearchResultPageStateTearOff {
       String text = '',
       FailureReason? failureReason,
       List<Repo> repositories = const [],
-      List<Owner> users = const []}) {
+      List<Owner> users = const [],
+      bool isLoading = false}) {
     return _SearchResultPageState(
       type: type,
       text: text,
       failureReason: failureReason,
       repositories: repositories,
       users: users,
+      isLoading: isLoading,
     );
   }
 }
@@ -43,6 +45,7 @@ mixin _$SearchResultPageState {
   FailureReason? get failureReason => throw _privateConstructorUsedError;
   List<Repo> get repositories => throw _privateConstructorUsedError;
   List<Owner> get users => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchResultPageStateCopyWith<SearchResultPageState> get copyWith =>
@@ -59,7 +62,8 @@ abstract class $SearchResultPageStateCopyWith<$Res> {
       String text,
       FailureReason? failureReason,
       List<Repo> repositories,
-      List<Owner> users});
+      List<Owner> users,
+      bool isLoading});
 
   $FailureReasonCopyWith<$Res>? get failureReason;
 }
@@ -80,6 +84,7 @@ class _$SearchResultPageStateCopyWithImpl<$Res>
     Object? failureReason = freezed,
     Object? repositories = freezed,
     Object? users = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       type: type == freezed
@@ -102,6 +107,10 @@ class _$SearchResultPageStateCopyWithImpl<$Res>
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<Owner>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -129,7 +138,8 @@ abstract class _$SearchResultPageStateCopyWith<$Res>
       String text,
       FailureReason? failureReason,
       List<Repo> repositories,
-      List<Owner> users});
+      List<Owner> users,
+      bool isLoading});
 
   @override
   $FailureReasonCopyWith<$Res>? get failureReason;
@@ -153,6 +163,7 @@ class __$SearchResultPageStateCopyWithImpl<$Res>
     Object? failureReason = freezed,
     Object? repositories = freezed,
     Object? users = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_SearchResultPageState(
       type: type == freezed
@@ -175,6 +186,10 @@ class __$SearchResultPageStateCopyWithImpl<$Res>
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<Owner>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -187,7 +202,8 @@ class _$_SearchResultPageState extends _SearchResultPageState {
       this.text = '',
       this.failureReason,
       this.repositories = const [],
-      this.users = const []})
+      this.users = const [],
+      this.isLoading = false})
       : super._();
 
   @JsonKey(defaultValue: SearchCategoryType.repository)
@@ -204,10 +220,13 @@ class _$_SearchResultPageState extends _SearchResultPageState {
   @JsonKey(defaultValue: const [])
   @override
   final List<Owner> users;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'SearchResultPageState(type: $type, text: $text, failureReason: $failureReason, repositories: $repositories, users: $users)';
+    return 'SearchResultPageState(type: $type, text: $text, failureReason: $failureReason, repositories: $repositories, users: $users, isLoading: $isLoading)';
   }
 
   @override
@@ -225,7 +244,10 @@ class _$_SearchResultPageState extends _SearchResultPageState {
                 const DeepCollectionEquality()
                     .equals(other.repositories, repositories)) &&
             (identical(other.users, users) ||
-                const DeepCollectionEquality().equals(other.users, users)));
+                const DeepCollectionEquality().equals(other.users, users)) &&
+            (identical(other.isLoading, isLoading) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoading, isLoading)));
   }
 
   @override
@@ -235,7 +257,8 @@ class _$_SearchResultPageState extends _SearchResultPageState {
       const DeepCollectionEquality().hash(text) ^
       const DeepCollectionEquality().hash(failureReason) ^
       const DeepCollectionEquality().hash(repositories) ^
-      const DeepCollectionEquality().hash(users);
+      const DeepCollectionEquality().hash(users) ^
+      const DeepCollectionEquality().hash(isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -250,7 +273,8 @@ abstract class _SearchResultPageState extends SearchResultPageState {
       String text,
       FailureReason? failureReason,
       List<Repo> repositories,
-      List<Owner> users}) = _$_SearchResultPageState;
+      List<Owner> users,
+      bool isLoading}) = _$_SearchResultPageState;
   _SearchResultPageState._() : super._();
 
   @override
@@ -263,6 +287,8 @@ abstract class _SearchResultPageState extends SearchResultPageState {
   List<Repo> get repositories => throw _privateConstructorUsedError;
   @override
   List<Owner> get users => throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SearchResultPageStateCopyWith<_SearchResultPageState> get copyWith =>

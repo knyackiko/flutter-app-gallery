@@ -34,22 +34,24 @@ class SearchResultPageViewModel extends StateNotifier<SearchResultPageState> {
   }
 
   Future<void> _updateRepositories() async {
+    state = state.copyWith(isLoading: true);
     final result = await _repoRepository.findByName(state.text);
     result.when(
-      success: (repositories) => state =
-          state.copyWith(repositories: repositories, failureReason: null),
-      failure: (failureReason) => state =
-          state.copyWith(repositories: [], failureReason: failureReason),
+      success: (repositories) => state = state.copyWith(
+          repositories: repositories, failureReason: null, isLoading: false),
+      failure: (failureReason) => state = state.copyWith(
+          repositories: [], failureReason: failureReason, isLoading: false),
     );
   }
 
   Future<void> _updateUsers() async {
+    state = state.copyWith(isLoading: true);
     final result = await _userRepository.findByName(state.text);
     result.when(
-      success: (users) =>
-          state = state.copyWith(users: users, failureReason: null),
-      failure: (failureReason) =>
-          state = state.copyWith(users: [], failureReason: failureReason),
+      success: (users) => state =
+          state.copyWith(users: users, failureReason: null, isLoading: false),
+      failure: (failureReason) => state = state
+          .copyWith(users: [], failureReason: failureReason, isLoading: false),
     );
   }
 }

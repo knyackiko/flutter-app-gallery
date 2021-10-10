@@ -7,5 +7,6 @@ part 'home_content_state.freezed.dart';
 class HomeContentState with _$HomeContentState {
   factory HomeContentState({
     @Default([]) List<Repo> repositories,
+    @Default(false) bool isLoading,
   }) = _HomeContentState;
 }

@@ -15,6 +15,7 @@ class SearchResultPageState with _$SearchResultPageState {
     FailureReason? failureReason,
     @Default([]) List<Repo> repositories,
     @Default([]) List<Owner> users,
+    @Default(false) bool isLoading,
   }) = _SearchResultPageState;
 
   int get resultLength {

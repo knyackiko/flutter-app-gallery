@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$HomeContentStateTearOff {
   const _$HomeContentStateTearOff();
 
-  _HomeContentState call({List<Repo> repositories = const []}) {
+  _HomeContentState call(
+      {List<Repo> repositories = const [], bool isLoading = false}) {
     return _HomeContentState(
       repositories: repositories,
+      isLoading: isLoading,
     );
   }
 }
@@ -30,6 +32,7 @@ const $HomeContentState = _$HomeContentStateTearOff();
 /// @nodoc
 mixin _$HomeContentState {
   List<Repo> get repositories => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeContentStateCopyWith<HomeContentState> get copyWith =>
@@ -41,7 +44,7 @@ abstract class $HomeContentStateCopyWith<$Res> {
   factory $HomeContentStateCopyWith(
           HomeContentState value, $Res Function(HomeContentState) then) =
       _$HomeContentStateCopyWithImpl<$Res>;
-  $Res call({List<Repo> repositories});
+  $Res call({List<Repo> repositories, bool isLoading});
 }
 
 /// @nodoc
@@ -56,12 +59,17 @@ class _$HomeContentStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? repositories = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       repositories: repositories == freezed
           ? _value.repositories
           : repositories // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -73,7 +81,7 @@ abstract class _$HomeContentStateCopyWith<$Res>
           _HomeContentState value, $Res Function(_HomeContentState) then) =
       __$HomeContentStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Repo> repositories});
+  $Res call({List<Repo> repositories, bool isLoading});
 }
 
 /// @nodoc
@@ -90,12 +98,17 @@ class __$HomeContentStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? repositories = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_HomeContentState(
       repositories: repositories == freezed
           ? _value.repositories
           : repositories // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,15 +116,18 @@ class __$HomeContentStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeContentState implements _HomeContentState {
-  _$_HomeContentState({this.repositories = const []});
+  _$_HomeContentState({this.repositories = const [], this.isLoading = false});
 
   @JsonKey(defaultValue: const [])
   @override
   final List<Repo> repositories;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'HomeContentState(repositories: $repositories)';
+    return 'HomeContentState(repositories: $repositories, isLoading: $isLoading)';
   }
 
   @override
@@ -120,12 +136,17 @@ class _$_HomeContentState implements _HomeContentState {
         (other is _HomeContentState &&
             (identical(other.repositories, repositories) ||
                 const DeepCollectionEquality()
-                    .equals(other.repositories, repositories)));
+                    .equals(other.repositories, repositories)) &&
+            (identical(other.isLoading, isLoading) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLoading, isLoading)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(repositories);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(repositories) ^
+      const DeepCollectionEquality().hash(isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -134,10 +155,13 @@ class _$_HomeContentState implements _HomeContentState {
 }
 
 abstract class _HomeContentState implements HomeContentState {
-  factory _HomeContentState({List<Repo> repositories}) = _$_HomeContentState;
+  factory _HomeContentState({List<Repo> repositories, bool isLoading}) =
+      _$_HomeContentState;
 
   @override
   List<Repo> get repositories => throw _privateConstructorUsedError;
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$HomeContentStateCopyWith<_HomeContentState> get copyWith =>

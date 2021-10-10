@@ -15,13 +15,14 @@ class HomeContentViewModel extends StateNotifier<HomeContentState> {
   late final RepoRepository repoRepository;
 
   updateRepositories() async {
+    state = state.copyWith(isLoading: true);
     final result = await repoRepository.findByUserName('kyklades');
     result.when(
       success: (repositories) {
-        state = state.copyWith(repositories: repositories);
+        state = state.copyWith(repositories: repositories, isLoading: false);
       },
       failure: (reason) {
-        state = state.copyWith(repositories: []);
+        state = state.copyWith(repositories: [], isLoading: false);
       },
     );
   }
