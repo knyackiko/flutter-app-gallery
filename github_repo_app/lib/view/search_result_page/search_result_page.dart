@@ -5,6 +5,7 @@ import 'package:github_repo_app/view/search_result_page/repository_list_item.dar
 import 'package:github_repo_app/view/search_result_page/user_list_item.dart';
 import 'package:github_repo_app/view/shared/scroll_view.dart';
 import 'package:github_repo_app/view_model/search_result_page/search_result_page_view_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SearchResultPage extends ConsumerWidget {
   const SearchResultPage({Key? key}) : super(key: key);
@@ -19,6 +20,13 @@ class SearchResultPage extends ConsumerWidget {
       default:
         return '';
     }
+  }
+
+  void open(BuildContext context, String? url) {
+    if (url == null || url.isEmpty) {
+      return;
+    }
+    launch(url, statusBarBrightness: Theme.of(context).brightness);
   }
 
   @override
@@ -41,10 +49,15 @@ class SearchResultPage extends ConsumerWidget {
                   switch (searchResultPageState.type) {
                     case SearchCategoryType.repository:
                       return RepositoryListItem(
-                          repo: searchResultPageState.repositories[index]);
+                        repo: searchResultPageState.repositories[index],
+                        onTap: () => open(context,
+                            searchResultPageState.repositories[index].htmlUrl),
+                      );
                     case SearchCategoryType.user:
                       return UserListItem(
-                          user: searchResultPageState.users[index]);
+                          user: searchResultPageState.users[index],
+                          onTap: () => open(context,
+                              searchResultPageState.users[index].htmlUrl));
                     default:
                       return Container();
                   }
