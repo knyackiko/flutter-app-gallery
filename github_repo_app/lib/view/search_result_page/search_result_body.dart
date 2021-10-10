@@ -20,29 +20,33 @@ class SearchResultBody extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final searchResultPageState = watch(searchResultPageViewModelProvider);
 
-    return ListView.separated(
-      physics: const AlwaysScrollableScrollPhysics(),
-      itemCount: searchResultPageState.resultLength,
-      itemBuilder: (BuildContext context, int index) {
-        switch (searchResultPageState.type) {
-          case SearchCategoryType.repository:
-            return RepositoryListItem(
-              repo: searchResultPageState.repositories[index],
-              onTap: () => open(
-                  context, searchResultPageState.repositories[index].htmlUrl),
-            );
-          case SearchCategoryType.user:
-            return UserListItem(
-              user: searchResultPageState.users[index],
-              onTap: () =>
-                  open(context, searchResultPageState.users[index].htmlUrl),
-            );
-          default:
-            return Container();
-        }
-      },
-      separatorBuilder: (BuildContext context, int index) =>
-          const Divider(height: 0),
-    );
+    return searchResultPageState.resultLength == 0
+        ? const Center(
+            child: Text('一件もありませんでした。'),
+          )
+        : ListView.separated(
+            physics: const AlwaysScrollableScrollPhysics(),
+            itemCount: searchResultPageState.resultLength,
+            itemBuilder: (BuildContext context, int index) {
+              switch (searchResultPageState.type) {
+                case SearchCategoryType.repository:
+                  return RepositoryListItem(
+                    repo: searchResultPageState.repositories[index],
+                    onTap: () => open(context,
+                        searchResultPageState.repositories[index].htmlUrl),
+                  );
+                case SearchCategoryType.user:
+                  return UserListItem(
+                    user: searchResultPageState.users[index],
+                    onTap: () => open(
+                        context, searchResultPageState.users[index].htmlUrl),
+                  );
+                default:
+                  return Container();
+              }
+            },
+            separatorBuilder: (BuildContext context, int index) =>
+                const Divider(height: 0),
+          );
   }
 }
