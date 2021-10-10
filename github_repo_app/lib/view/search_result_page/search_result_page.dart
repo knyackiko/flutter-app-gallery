@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:github_repo_app/view/search_page/search_page_body_category.dart';
 import 'package:github_repo_app/view/search_result_page/repository_list_item.dart';
+import 'package:github_repo_app/view/search_result_page/user_list_item.dart';
 import 'package:github_repo_app/view/shared/scroll_view.dart';
 import 'package:github_repo_app/view_model/search_result_page/search_result_page_view_model.dart';
 
@@ -42,7 +43,8 @@ class SearchResultPage extends ConsumerWidget {
                       return RepositoryListItem(
                           repo: searchResultPageState.repositories[index]);
                     case SearchCategoryType.user:
-                      return Text(searchResultPageState.users[index].login);
+                      return UserListItem(
+                          user: searchResultPageState.users[index]);
                     default:
                       return Container();
                   }
