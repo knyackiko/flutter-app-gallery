@@ -5,7 +5,7 @@ import 'package:shimmer/shimmer.dart';
 class AppShimmer extends StatelessWidget {
   const AppShimmer({required this.child, Key? key}) : super(key: key);
   final Widget child;
-  static final Color color = Colors.white;
+  static const Color color = Colors.white;
 
   @override
   Widget build(BuildContext context) {

@@ -18,7 +18,7 @@ class SearchResultBodyShimmer extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundColor: AppShimmer.color,
                     radius: 12.0,
                   ),
@@ -39,7 +39,7 @@ class SearchResultBodyShimmer extends StatelessWidget {
         );
       case SearchCategoryType.user:
         return ListTile(
-          leading: CircleAvatar(
+          leading: const CircleAvatar(
             backgroundColor: AppShimmer.color,
             radius: 18.0,
           ),

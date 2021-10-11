@@ -10,7 +10,7 @@ class RepoListBodyShimmer extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (BuildContext context, int index) => AppShimmer(
         child: ListTile(
-          leading: CircleAvatar(backgroundColor: AppShimmer.color),
+          leading: const CircleAvatar(backgroundColor: AppShimmer.color),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

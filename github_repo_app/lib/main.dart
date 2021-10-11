@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         MainPage.routeName: (BuildContext context) => const MainPage(),
         RepoPage.routeName: (BuildContext context) => const RepoPage(),
-        SearchPage.routeName: (BuildContext context) => SearchPage(),
+        SearchPage.routeName: (BuildContext context) => const SearchPage(),
         SearchResultPage.routeName: (BuildContext context) =>
             const SearchResultPage(),
       },
